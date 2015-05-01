@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twitter Bootstrap Wizard</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Twitter Bootstrap Wizard Plugin">
-	<meta name="author" content="Vincent Gabriel">
+    <title>SEIU Metrics Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Twitter Bootstrap Wizard Plugin">
+    <meta name="author" content="Vincent Gabriel">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	<style type="text/css">
-	      body {
-	        padding-top: 60px;
-	        padding-bottom: 40px;
-	      }
-	      .sidebar-nav {
-	        padding: 9px 0;
-	      }
-	    </style>
+    <style type="text/css">
+          body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+          }
+          .sidebar-nav {
+            padding: 9px 0;
+          }
+        </style>
 
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	    <![endif]-->
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -54,125 +54,110 @@
           <div class="row-fluid">
           <div class="row-fluid">
 
-	
-			<div class="span11">
-			<a name="demo"></a>
-              <h2>Demo</h2>
-              <p>Basic Demo Example.</p>
-              	<div id="rootwizard">
-					<div class="navbar">
-					  <div class="navbar-inner">
-					    <div class="container">
-					<ul>
-					  	<li><a href="#tab1" data-toggle="tab">First</a></li>
-						<li><a href="#tab2" data-toggle="tab">Second</a></li>
-						<li><a href="#tab3" data-toggle="tab">Third</a></li>
-						<li><a href="#tab4" data-toggle="tab">Forth</a></li>
-						<li><a href="#tab5" data-toggle="tab">Fifth</a></li>
-						<li><a href="#tab6" data-toggle="tab">Sixth</a></li>
-						<li><a href="#tab7" data-toggle="tab">Seventh</a></li>
-					</ul>
-					 </div>
-					  </div>
-					</div>
-					<div id="bar" class="progress progress-striped active">
-					  <div class="bar"></div>
-					</div>
-					<div class="tab-content">
+    
+            <div class="span11">
+                <div id="rootwizard">
+                    <div class="navbar">
+                      <div class="navbar-inner">
+                        <div class="container">
+                    <ul>
+                        <li><a href="#tab1" data-toggle="tab">First</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Second</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Third</a></li>
+                        <li><a href="#tab4" data-toggle="tab">Forth</a></li>
+                    </ul>
+                     </div>
+                      </div>
+                    </div>
+                    <div id="bar" class="progress progress-striped active">
+                      <div class="bar"></div>
+                    </div>
+                    <div class="tab-content">
                         <div class="tab-pane" id="tab1">
-			      			<div class="input-group">
-			      				<label for="email">Email Address</label>
-			      				<input type="text" id="email" name="email" class="form-control" placeholder="Email Address">
-			      			</div>
-			      			<div class="input-group">
-			      				<label for="local">Local</label>
-			      				<input type="text" id="local" name="email" class="form-control" placeholder="Local">
-			      			</div>			
-			      			<div class="input-group">
-			      				<label for="report_type">Report Type</label>
-			      				<select id="report_type" class="form-control">
-			      					<option value="opt1">Type 1</option>
-			      					<option value="opt2">Type 2</option>
-			      					<option value="opt3">Type 3</option>
-			      				</select>
-			      			</div>
-							<div class="input-group">
-			      				<label for="email">As of Date</label>
-			      				<input type="text" id="date" name="date" class="form-control" placeholder="">								
-							</div>
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Email Address">
+                            </div>
+                            <div class="input-group">
+                                <label for="local">Local</label>
+                                <input type="text" id="local" name="email" class="form-control" placeholder="Local">
+                            </div>          
+                            <div class="input-group">
+                                <label for="report_type">Report Type</label>
+                                <select id="report_type" class="form-control">
+                                    <option value="opt1">Type 1</option>
+                                    <option value="opt2">Type 2</option>
+                                    <option value="opt3">Type 3</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="email">As of Date</label>
+                                <input type="text" id="date" name="date" class="form-control" placeholder="">                               
+                            </div>
                         </div>
                         <div class="tab-pane" id="tab2">
-                            <div>
+                            <div class="input-group">
                                 <label for="obligationcount">Number of members you are obligated to represent</label>
-                                <input type="text" id="obligationcount" />
+                                <input type="text" id="obligationcount" name="obligationcount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="fullduescount">Number of members from whom you recieve full dues</label>
-                                <input type="text" id="fullduescount" />
+                                <input type="text" id="fullduescount" name="fullduescount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="partialduescount">Number of members from whom you recieve partial dues</label>
-                                <input type="text" id="partialduescount" />
+                                <input type="text" id="partialduescount" name="partialduescount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="membercardcount">Number of members who have signed membership cards</label>
-                                <input type="text" id="membercardcount" />
+                                <input type="text" id="membercardcount" name="membercardcount" class="form-control"/>
                             </div>
                         </div>
 
-						<div class="tab-pane" id="tab3">
-							<div>
+                        <div class="tab-pane" id="tab3">
+                            <div class="input-group">
                                 <label for="politicalcardcount">Number of members who have agreed to contribute to political funds</label>
-                                <input type="text" id="politicalcardcount" />
+                                <input type="text" id="politicalcardcount" name="politicalcardcount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="politicalcontributorcount">Number of members from whom you regularly receive political contributions</label>
-                                <input type="text" id="politicalcontributorcount" />
+                                <input type="text" id="politicalcontributorcount" name="politicalcontributorcount" class="form-control"/>
                             </div>
-					    </div>
-						<div class="tab-pane" id="tab4">
-                            <div>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <div class="input-group">
                                 <label for="mailingcount">Number of members with complete mailing addresses</label>
-                                <input type="text" id="mailingcount" />
+                                <input type="text" id="mailingcount" name="mailingcount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="homeemailcount">Number of members with home email addresses</label>
-                                <input type="text" id="homeemailcount" />
+                                <input type="text" id="homeemailcount" name="homeemailcount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="workemailcount">Number of members with work email addresses</label>
-                                <input type="text" id="workemailcount" />
+                                <input type="text" id="workemailcount" name="workemailcount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="smscount">Number of members who have authorized SMS</label>
-                                <input type="text" id="smscount" />
+                                <input type="text" id="smscount" name="smscount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="homephonecount">Number of members who have provided a home phone number</label>
-                                <input type="text" id="homephonecount" />
+                                <input type="text" id="homephonecount" name="homephonecount" class="form-control"/>
                             </div>
-                            <div>
+                            <div class="input-group">
                                 <label for="cellphonecount">Number of members who have provided a cell phone number</label>
-                                <input type="text" id="cellphonecount" />
+                                <input type="text" id="cellphonecount" name="cellphonecount" class="form-control"/>
                             </div>
-					    </div>
-						<div class="tab-pane" id="tab5">
-							5
-					    </div>
-						<div class="tab-pane" id="tab6">
-							6
-					    </div>
-						<div class="tab-pane" id="tab7">
-							7
-					    </div>
-						<ul class="pager wizard">
-							<li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
-							<li class="previous"><a href="javascript:;">Previous</a></li>
-							<li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
-						  	<li class="next"><a href="javascript:;">Next</a></li>
-						</ul>
-					</div>
-				</div>
+                        </div>
+                        <ul class="pager wizard">
+                            <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
+                            <li class="previous"><a href="javascript:;">Previous</a></li>
+                            <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
+                            <li class="next"><a href="javascript:;">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div><!--/span-->
 
           </div><!--/row-->
@@ -186,16 +171,16 @@
     </div><!--/.fluid-container-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="js/jquery.bootstrap.wizard.min.js"></script>
-	<script>
-	$(document).ready(function() {
-	  	$('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
-			var $total = navigation.find('li').length;
-			var $current = index+1;
-			var $percent = ($current/$total) * 100;
-			$('#rootwizard').find('.bar').css({width:$percent+'%'});
-		}});
-	});
-	</script>
+    <script src="js/jquery.bootstrap.wizard.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#rootwizard').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+            var $total = navigation.find('li').length;
+            var $current = index+1;
+            var $percent = ($current/$total) * 100;
+            $('#rootwizard').find('.bar').css({width:$percent+'%'});
+        }});
+    });
+    </script>
   </body>
 </html>
