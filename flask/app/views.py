@@ -37,7 +37,10 @@ def index():
 			)
 		db.session.add(report_details)
 		db.session.commit()
-		return render_template('report.html', data=form)
+
+		report = models.ReportType.query.filter_by(id=form.report_type.data).first()
+		report_type_name = report.name
+		return render_template('report.html', data=form,report_type_name=report_type_name)
 
 	return render_template('index.html', form=form)
 

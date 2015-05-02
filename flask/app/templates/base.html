@@ -53,16 +53,21 @@
                     <h1>Welcome to the SEIU Metrics Calculator</h1>
                 </div>
 				{% block content %}{% endblock %}
-
-
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="static/js/jquery.bootstrap.wizard.min.js"></script>
     <script src="static/js/formValidation.js"></script>
+    <script src="static/js/metrics.js"></script>
     <script>
         $(document).ready(function () {
-            $('#obligation_count').on("change", function (eventObject) {
+            $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
+                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('#date').on("change", function (eventObject) {
+                validateDateInput(eventObject.target.value, eventObject)
             });
             $('#rootwizard').bootstrapWizard({
                 onTabShow: function (tab, navigation, index) {

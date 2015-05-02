@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="span11">
-	<p>You have successfully saved your {{ data.report_type.data }} data as {{ data.email.data }} for {{ data.local.data }}.</p>
+	<p>You have successfully saved your {{ report_type_name }} data as {{ data.email.data }} for {{ data.local.data }}.</p>
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
@@ -40,7 +40,32 @@
 	</table>
 </div>
 <button onClick="generateCSV()">Export as CSV</button>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="static/js/metrics.js"></script>
 <script>
+var myMetrics = seiuMetrics;
+seiuMetrics.setValues(
+	'{{ data.email.data }}',
+	'{{ data.local.data }}',
+	'{{ data.report_name.data }}',
+	'{{ report_type_name }}',
+	'{{ data.as_of_date.data }}',
+	{{ data.obligation_count.data }},
+	{{ data.full_dues_count.data }},
+	{{ data.partial_dues_count.data }},
+	{{ data.member_card_count.data }},
+	{{ data.political_card_count.data }},
+	{{ data.political_contributor_count.data }},
+	{{ data.mailing_count.data if data.mailing_count.data else 0 }}, // optional from here down
+	{{ data.home_email_count.data if data.home_email_count.data else 0 }},
+	{{ data.work_email_count.data if data.work_email_count.data else 0 }},
+	{{ data.sms_count.data if data.sms_count.data else 0 }},
+	{{ data.home_phone_count.data if data.home_phone_count.data else 0 }},
+	{{ data.cell_phone_count.data if data.cell_phone_count.data else 0 }}
+);
+seiuMetrics.calculateMetrics();
+console.log(seiuMetrics.getMetricsOutput());
+
 function generateCSV() {
 	csvData = [["Date", "Obligation","Full Dues Payers","Partial Dues Payers","Member Cards","Political Cards", "Political Payers", "Addresses", "Work Emails", "Home Emails", "Text Authorizations", "Home Phones", "Cell Phones"],["{{ data.as_of_date.data }}", "{{ data.obligation_count.data }}", "{{ data.full_dues_count.data }}", "{{ data.partial_dues_count.data }}", "{{ data.member_card_count.data }}", "{{ data.political_card_count.data }}", "{{ data.political_contributor_count.data }}", "{{ data.mailing_count.data }}", "{{ data.work_email_count.data }}", "{{ data.work_email_count.data }}", "{{ data.home_email_count.data }}", "{{ data.sms_count.data }}", "{{ data.home_phone_count.data }}", "{{ data.cell_phone_count.data }}"]];
 	exportToCsv('report.csv', csvData);
