@@ -1,3 +1,13 @@
+/*	SEIUMETRICS
+ *	
+ *	Calculates metrics based on data input by the user
+ *  
+ *  Usage:
+ *  	var myMetrics = seiuMetrics();
+ * 		myMetrics.getInputValues();
+ * 		myMetrics.calculateMetrics();
+ * 		myMetrics.getMetricsOutput();
+ */
 var seiuMetrics = (function(){
 
 	var inputEmail;
@@ -22,6 +32,9 @@ var seiuMetrics = (function(){
 
 	var metricsOutput;
 
+	/*
+	 * Queries the DOM for values of the form inputs and saves them in local variables
+	 */
 	var getInputValues = function(){
 		// Grab the values from the form
 		self.inputEmail = $("#email").val();
@@ -43,13 +56,36 @@ var seiuMetrics = (function(){
 		self.inputCellPhoneCount = $("#cell_phone_count").val();
 	};
 
+	/* 
+	 * Given values from the input objects, calculate the metrics and populate the metricsOutput object
+	 */
 	var calculateMetrics = function(){
 		metricsOutput = {
+			raw: {},
 			basic: {},
 			member: {},
 			political: {},
 			contact: {}
 		};
+
+		// Raw Data from the input form
+		metricsOutput.raw.inputEmail = self.inputEmail;
+		metricsOutput.raw.inputLocal = self.inputLocal;
+		metricsOutput.raw.inputReportName = self.inputReportName;
+		metricsOutput.raw.inputReportType = self.inputReportType;
+		metricsOutput.raw.inputDate = self.inputDate;
+		metricsOutput.raw.inputObligationCount = self.inputObligationCount;
+		metricsOutput.raw.inputFullDuesCount = self.inputFullDuesCount;
+		metricsOutput.raw.inputPartialDuesCount = self.inputPartialDuesCount;
+		metricsOutput.raw.inputMemberCardCount = self.inputMemberCardCount;
+		metricsOutput.raw.inputPoliticalCardCount = self.inputPoliticalCardCount;
+		metricsOutput.raw.inputPoliticalContributorCount = self.inputPoliticalContributorCount;
+		metricsOutput.raw.inputMailingCount = self.inputMailingCount;
+		metricsOutput.raw.inputHomeEmailCount = self.inputHomeEmailCount;
+		metricsOutput.raw.inputWorkEmailCount = self.inputWorkEmailCount;
+		metricsOutput.raw.inputSmsCount = self.inputSmsCount;
+		metricsOutput.raw.inputHomePhoneCount = self.inputHomePhoneCount;
+		metricsOutput.raw.inputCellPhoneCount = self.inputCellPhoneCount;
 
 		// These are pulled directly from the input
 		metricsOutput.basic.email = self.inputEmail;
@@ -120,6 +156,9 @@ var seiuMetrics = (function(){
 				:0;
 	};
 
+	/*
+	 * Returns the metricsOutput object
+	 */ 
 	var getMetricsOutput = function(){
 		return metricsOutput;
 	};
