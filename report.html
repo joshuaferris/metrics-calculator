@@ -20,11 +20,8 @@
         <canvas id="political_chart" width="300" height="300" />
     </div>
     <h2>Contact Avenues</h2>
-    <div id="address_holder">
-        <canvas id="address_chart" width="300" height="300" />
-    </div>
-    <div id="home_phone_holder">
-        <canvas id="home_phone_chart" width="300" height="300" />
+    <div id="contact_holder">
+        <canvas id="contact_chart" width="300" height="300" />
     </div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/Chart.js"></script>
@@ -50,20 +47,14 @@
             var political_contributorData = generatePoliticalChartDataSet(parent.seiuMetrics);
 
             var ctx = $("#political_chart").get(0).getContext("2d");
-            window.politicalChart = new Chart(ctx).Bar(political_contributorData, chartOptions);
+            window.politicalChart = new Chart(ctx).Pie(political_contributorData, chartOptions);
             $("#political_chart").after(window.politicalChart.generateLegend());
 
-            var addressData = generateAddressChartDataSet(parent.seiuMetrics);
+            var contactData = generateContactChartDataSet(metricsObject);
 
-            var ctx = $("#address_chart").get(0).getContext("2d");
-            window.addressChart = new Chart(ctx).Bar(addressData, chartOptions);
-            $("#address_chart").after(window.addressChart.generateLegend());
-
-            var home_phoneData = generateHomePhoneChartDataSet(parent.seiuMetrics);
-
-            var ctx = $("#home_phone_chart").get(0).getContext("2d");
-            window.home_phoneChart = new Chart(ctx).Bar(home_phoneData, chartOptions);
-            $("#home_phone_chart").after(window.home_phoneChart.generateLegend());
+            var ctx = $("#contact_chart").get(0).getContext("2d");
+            window.contactChart = new Chart(ctx).Bar(contactData, chartOptions);
+            $("#contact_chart").after(window.contactChart.generateLegend());
         });
 
 
