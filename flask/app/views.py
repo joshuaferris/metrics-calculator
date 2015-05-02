@@ -1,6 +1,8 @@
 from flask import render_template
 from app import app
+from .forms import UnionMetricsForm
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-	return render_template('index.html')
+	form = UnionMetricsForm
+	return render_template('index.html', form=form)

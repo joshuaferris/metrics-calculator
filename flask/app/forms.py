@@ -1,11 +1,11 @@
 from flask.ext.wtf import Form
-from wtforms.fields import IntegerField,TextField
+from wtforms.fields import IntegerField,TextField,SelectField
 from wtforms.validators import Required, Email
 
 class UnionMetricsForm(Form):
 	email = TextField('Email', validators=[Required(), Email()])
-	local = SelectField('Local', coerce=init) # Turn this into a dropdown or autocomplete
-	report_type = SelectField('ReportType',coerce=init)
+	local = SelectField('Local', coerce=int) # Turn this into a dropdown or autocomplete
+	report_type = SelectField('ReportType',coerce=int)
 	##################################################
 	# Add options for report_type here
 	# report_type.choices = ....
