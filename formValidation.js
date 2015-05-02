@@ -1,7 +1,14 @@
-function validateIntegerInput(input) {
-    //Given the value of an input, expecting an integer, return an integer representation
-    var strippedString = input.replace(/\D/g, "")
-    return strippedString.parseInt()
+function validateIntegerInput(input, context) {
+    //Given the value of an input, expecting an integer, and context, the form input element hosting this value
+    //format this integer value and set the value of the input field to the formatted version.
+    if (input === "") {
+        //Raise an field error
+    }
+    else {
+        var strippedString = input.replace(/\D/g, "");
+        var integerValue = parseInt(strippedString)
+        context.target.value = integerValue;
+    }
 }
 
 function validateDateInput(input, context) {
@@ -10,14 +17,14 @@ function validateDateInput(input, context) {
     if (Date.parse(input).isNan()) {
         //Raise field error
     }
-    var dateconversion = new Date(Date.parse(input))
-    return dateconversion
+    var dateconversion = new Date(Date.parse(input));
+    return dateconversion;
 }
 
 function validateLocalName(input, context) {
     //Given the value of an input, expecting the name of a local, check it against a list of existing local names
     //Context is used to pass the object to raise a field error against, if the local name is invalid
-    var isLocal = checkLocalNameValue(input)
+    var isLocal = checkLocalNameValue(input);
     //If the local was invalid, find a list of possible matches to present.
 
     //Raise a field error against the local field, with a list of possible matches
@@ -55,4 +62,8 @@ function generateReferenceSet() {
         localNameSet = tempArray;
     }
     return localNameSet;
+}
+
+function suggestLocalName(input) {
+    //Given a potential local name, check against the list of local names and return an array of possible matches based on the numerical content of the input local name
 }
