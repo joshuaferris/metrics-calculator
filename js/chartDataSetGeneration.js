@@ -51,3 +51,4 @@ function generateDuesChartDataSet(metricsObject) {
     ];
     return dataSet
 }
+
