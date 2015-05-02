@@ -17,6 +17,8 @@ var seiuMetrics = (function(){
 	var inputHomePhoneCount;
 	var inputCellPhoneCount;
 
+	var metricsOutput;
+
 	var getInputValues = function(){
 		// Grab the values from the form
 		this.inputEmail = $("#email").val();
@@ -36,17 +38,27 @@ var seiuMetrics = (function(){
 		this.inputHomePhoneCount = $("#home_phone_count").val();
 		this.inputCellPhoneCount = $("#cell_phone_count").val();
 
-		console.log(this.inputEmail);
-
 	};
 
 	var calculateMetrics = function(){
+		// These are pulled directly from the input
+		metricsOutput.email = this.inputEmail;
+		metricsOutput.local = this.inputLocal;
+		metricsOutput.reportName = this.inputReportName;
+		metricsOutput.inputDate = this.inputDate;
 
+		// These are calculated values
+		
+	}
+
+	var getMetricsOutput = function(){
+		return metricsOutput;
 	}
 
 	return{
 		getInputValues,
-		calculateMetrics
+		calculateMetrics,
+		getMetricsOutput
 	}
 
 }($));
