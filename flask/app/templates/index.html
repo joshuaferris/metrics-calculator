@@ -1,27 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-            <div class="span11"><a name="#"></a>
-
-                <div id="rootwizard">
-                    <div class="navbar">
-                      <div class="navbar-inner">
-                        <div class="container">
+<div class="row-fluid">
+	<form action="" method="post" name="metrics" class="navbar-form">
+  <div class="span11"><a name="#"></a>
+    <div id="rootwizard">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
                     <ul>
                         <li><a href="#tab1" data-toggle="tab">Your Information</a></li>
                         <li><a href="#tab2" data-toggle="tab">Member Counts</a></li>
                         <li><a href="#tab3" data-toggle="tab">Political Engagement</a></li>
                         <li><a href="#tab4" data-toggle="tab">Contact Avenues</a></li>
                     </ul>
-                     </div>
-                      </div>
-                    </div>
-                    <div id="bar" class="progress progress-striped active">
-                      <div class="bar"></div>
-                    </div>
-
                 </div>
-            </div><!--/span-->
+            </div>
+        </div>
 
             {% include 'forms.html' %}
 
