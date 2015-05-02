@@ -3,13 +3,21 @@ function validateIntegerInput(input, context) {
     //format this integer value and set the value of the input field to the formatted version.
     var sourceID = context.target.id;
     var strippedString = input.replace(/\D/g, "");
+    var zeroValid = context.target.dataset.zeroValid;
+    //Check for a complete input, as this field is mandatory
     if (strippedString === "") {
         var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">An integer input is required.</div>";
         $(context.target).after(alertString);
     }
     else {
+        //Clear any existing error messages on this field
         $("div[data-source-id='" + sourceID + "']").remove();
         var integerValue = parseInt(strippedString);
+        //If zero is flagged as an invalid input value, raise a warning
+        if (zeroValid === "false" && integerValue == 0) {
+            var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">Zero is not an accepted input value for this field.</div>";
+            $(context.target).after(alertString);
+        }
         context.target.value = integerValue;
     }
 }
@@ -19,11 +27,13 @@ function validateOptionalIntegerInput(input, context) {
     //format this integer value and set the value of the input field to the formatted version.
     var sourceID = context.target.id;
     var strippedString = input.replace(/\D/g, "");
+    //If the input was strictly non-digits, raise an information warning
     if (strippedString === "" && input.length > 0) {
         var alertString = "<div class=\"alert alert-info\" role=\"alert\" data-source-id=" + sourceID + ">We could not read this input.</div>";
         $(context.target).after(alertString);
     }
     else {
+        //Clear any existing error messages on this field
         $("div[data-source-id='" + sourceID + "']").remove();
         var integerValue = parseInt(strippedString);
         if (!isNaN(integerValue)) {
@@ -36,11 +46,13 @@ function validateDateInput(input, context) {
     //Given the value of an input, expecting some format of date, return a formatted date string
     //Context is used to pass the object to raise a field error against, if the date is invalid
     var sourceID = context.target.id;
+    //Check if the date parses correctly
     if (isNaN(Date.parse(input))) {
         var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">We could not read this date</div>";
         $(context.target).after(alertString);
     }
     else {
+        //Clear any existing error messages on this field
         $("div[data-source-id='" + sourceID + "']").remove();
         var dateconversion = new Date(Date.parse(input));
         context.target.value = dateconversion.toLocaleDateString()
