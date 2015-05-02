@@ -327,24 +327,20 @@
         </div><!--/.fluid-container-->
     </div>
 
-    <div id="reportContainer">
-            <h1 id="report_title">Placeholder Title</h1>
-            <h2>Universe</h2>
-            <div id="universe1_holder">
-                <canvas id="universe1_chart" width="300" height="300" />
-            </div>
-            <h2>Political Engagement</h2>
-            <h2>Contact Avenues</h2>
-    </div>
+<!--     <div id="reportContainer">
+        <h1 id="report_title">Placeholder Title</h1>
+        <h2>Universe</h2>
+        <div id="universe1_holder">
+            <canvas id="universe1_chart" width="300" height="300" />
+        </div>
+        <h2>Political Engagement</h2>
+        <h2>Contact Avenues</h2>
+</div> -->
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <script src="formValidation.js"></script>
-    <script src="js/metrics.js"></script>
-    <script src="js/Chart.min.js"></script>
-    <script src="js/Chart.Doughnut.js"></script>
-    <script src="js/chartDataSetGeneration.js"></script>
     <script>
         $(document).ready(function () {
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
@@ -365,7 +361,7 @@
                 }
             });
 
-            $("#inputForm").submit(function(){
+/*            $("#inputForm").submit(function(){
                 var metricsCalc = seiuMetrics;
                 metricsCalc.getInputValues();
                 metricsCalc.calculateMetrics();
@@ -378,7 +374,7 @@
                 $("#universe1_chart").after(window.myPie.generateLegend())                
                 return false;
             });
-
+*/
         });
     </script>
   </body>
