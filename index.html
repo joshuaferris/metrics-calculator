@@ -114,28 +114,28 @@
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="obligation_count">Number of members you are obligated to represent</label>
-                                                    <input type="text" id="obligation_count" name="obligation_count" class="form-control"/>
+                                                    <input type="text" id="obligation_count" name="obligation_count" class="form-control" data-validation-type="mandatory_integer" data-zero-valid="false"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-                                                    <input type="text" id="full_dues_count" name="full_dues_count" class="form-control"/>
+                                                    <input type="text" id="full_dues_count" name="full_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-                                                    <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control"/>
+                                                    <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="member_card_count">Number of members who have signed membership cards</label>
-                                                    <input type="text" id="member_card_count" name="member_card_count" class="form-control"/>
+                                                    <input type="text" id="member_card_count" name="member_card_count" class="form-control" data-validation-type="mandatory_integer"/>
                                                 </div>
                                             </div>
 
@@ -146,14 +146,14 @@
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-                                                    <input type="text" id="political_card_count" name="political_card_count" class="form-control"/>
+                                                    <input type="text" id="political_card_count" name="political_card_count" class="form-control" data-validation-type="mandatory_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-                                                    <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control"/>
+                                                    <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control" data-validation-type="mandatory_integer"/>
                                                 </div>
                                             </div>
 
@@ -162,42 +162,42 @@
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="mailing_count">Number of members with complete mailing addresses</label>
-                                                    <input type="text" id="mailing_count" name="mailing_count" class="form-control"/>
+                                                    <input type="text" id="mailing_count" name="mailing_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="home_email_count">Number of members with home email addresses</label>
-                                                    <input type="text" id="home_email_ount" name="home_email_count" class="form-control"/>
+                                                    <input type="text" id="home_email_ount" name="home_email_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="work_email_count">Number of members with work email addresses</label>
-                                                    <input type="text" id="work_email_count" name="work_email_count" class="form-control"/>
+                                                    <input type="text" id="work_email_count" name="work_email_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="sms_count">Number of members who have authorized SMS</label>
-                                                    <input type="text" id="sms_count" name="sms_count" class="form-control"/>
+                                                    <input type="text" id="sms_count" name="sms_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="home_phone_count">Number of members who have provided a home phone number</label>
-                                                    <input type="text" id="home_phone_count" name="home_phone_count" class="form-control"/>
+                                                    <input type="text" id="home_phone_count" name="home_phone_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-group">
                                                     <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-                                                    <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control"/>
+                                                    <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control" data-validation-type="optional_integer"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,10 +237,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <script src="formValidation.js"></script>
+    <script src="js/metrics.js"></script>
     <script>
         $(document).ready(function () {
-            $('#obligation_count').on("change", function (eventObject) {
+            $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
+                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('#date').on("change", function (eventObject) {
+                validateDateInput(eventObject.target.value, eventObject)
             });
             $('#rootwizard').bootstrapWizard({
                 onTabShow: function (tab, navigation, index) {
@@ -250,6 +257,7 @@
                     $('#rootwizard').find('.bar').css({ width: $percent + '%' });
                 }
             });
+
         });
     </script>
   </body>
