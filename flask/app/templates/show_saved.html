@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="span11">
+{% if users %}
+<h2>Users Table</h2>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Email</th>
+			<th>Local</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for user in users %}
+		<tr>
+			<td>{{ user.id }}</td>
+			<td>{{ user.email }}</td>
+			<td>{{ user.local_name }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<h2>Report Details Table</h2>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>User ID</th>
+			<th>Report Type ID</th>
+			<th>Time Stamp</th>
+			<th>As of Date</th>
+			<th>Obligation Count</th>
+			<th>Full Dues Count</th>
+			<th>Partial Dues Count</th>
+			<th>Member Card Count</th>
+			<th>Political Contributor Count</th>
+			<th>Political Card Count</th>
+			<th>Mailing Count</th>
+			<th>Work Email Count</th>
+			<th>Home Email Count</th>
+			<th>SMS Count</th>
+			<th>Home Phone Count</th>
+			<th>Cell Phone Count</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for report in details %}
+		<tr>
+			<td>{{ report.id }}</td>
+			<td>{{ report.user_id }}</td>
+			<td>{{ report.report_type_id }}</td>
+			<td>{{ report.timestamp }}</td>
+			<td>{{ report.as_of_date }}</td>
+			<td>{{ report.obligation_count }}</td>
+			<td>{{ report.full_dues_count }}</td>
+			<td>{{ report.partial_dues_count }}</td>
+			<td>{{ report.member_card_count }}</td>
+			<td>{{ report.political_contributor_count }}</td>
+			<td>{{ report.political_card_count }}</td>
+			<td>{{ report.mailing_count }}</td>
+			<td>{{ report.work_email_count }}</td>
+			<td>{{ report.home_email_count }}</td>
+			<td>{{ report.sms_count }}</td>
+			<td>{{ report.home_phone_count }}</td>
+			<td>{{ report.cell_phone_count }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endif %}
+</div>
+{% endblock %}

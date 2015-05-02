@@ -23,7 +23,8 @@ def index():
 			timestamp = datetime.datetime.utcnow(),
 			as_of_date = form.as_of_date.data,
 			obligation_count = form.obligation_count.data,
-			full_dues_count = form.partial_dues_count.data,
+			full_dues_count = form.full_dues_count.data,
+			partial_dues_count = form.partial_dues_count.data,
 			member_card_count = form.member_card_count.data,
 			political_contributor_count = form.political_contributor_count.data,
 			political_card_count = form.political_card_count.data,
@@ -40,3 +41,9 @@ def index():
 
 	return render_template('index.html', form=form)
 
+@app.route('/show_saved')
+def show_saved():
+	users = models.User.query.all()
+	details = models.ReportDetails.query.all()
+
+	return render_template('show_saved.html', users=users, details=details)
