@@ -17,7 +17,6 @@ def index():
 			db.session.commit()
 		user = models.User.query.filter_by(email=form.email.data).first()
 
-		# Add in report
 		report_details = models.ReportDetails(
 			user_id = user.id,
 			report_type_id = form.report_type.data,
@@ -37,5 +36,7 @@ def index():
 			)
 		db.session.add(report_details)
 		db.session.commit()
-		return render_template('success.html', form=form)
+		return render_template('report.html', data=form)
+
 	return render_template('index.html', form=form)
+

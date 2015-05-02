@@ -3,6 +3,9 @@
 
 <div class="row-fluid">
 	<form action="" method="post" name="metrics" class="navbar-form">
+	{% if form.errors %}
+	<div class="alert alert-danger"><strong>Warning:</strong>It looks like there is some data missing. Please review.</div>
+	{% endif %}
   <div class="span11"><a name="#"></a>
     <div id="rootwizard">
         <div class="navbar">
