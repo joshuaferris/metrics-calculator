@@ -1,13 +1,13 @@
 from flask.ext.wtf import Form
-from wtforms import IntegerField,StringField,SelectField
-from wtforms.validators import DataRequired, Email
+from wtforms import DateField,IntegerField,StringField,SelectField
+from wtforms.validators import DataRequired, Email, Length
 
 class UnionMetricsForm(Form):
-	email = StringField('Email', validators=[DataRequired(), Email()])
-	local = StringField('Local') # Turn this into a dropdown or autocomplete
+	email = StringField('Email', validators=[DataRequired(), Email(),Length(max=60)])
+	local = StringField('Local', validators=[Length(max=120)]) # Turn this into a dropdown or autocomplete
 	report_type = SelectField('ReportType',coerce=int)
 	report_name = StringField('ReportName')
-	as_of_date = StringField('AsOfDate', validators=[DataRequired()]) # Also add custom validator for date format
+	as_of_date = DateField('AsOfDate', validators=[DataRequired()],format='%m/%d/%Y') # Also add custom validator for date format
 	obligation_count = IntegerField('ObligationCount', validators=[DataRequired()])
 	full_dues_count = IntegerField('FullDuesCount', validators=[DataRequired()])
 	partial_dues_count = IntegerField('PartialDuesCount', validators=[DataRequired()])
