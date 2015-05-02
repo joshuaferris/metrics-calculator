@@ -56,8 +56,9 @@ function validateDateInput(input, context) {
     else {
         //Clear any existing error messages on this field
         $("div[data-source-id='" + sourceID + "']").remove();
-        var dateconversion = new Date(Date.parse(input));
-        context.target.value = dateconversion.
+        var dateConversion = new Date(Date.parse(input));
+        var dateString = (dateConversion.getMonth() + 1) + "/" + (dateConversion.getDate()) + "/" + dateConversion.getFullYear()
+        context.target.value = dateString
     }
 }
 
