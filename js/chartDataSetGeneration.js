@@ -52,3 +52,20 @@ function generateDuesChartDataSet(metricsObject) {
     return dataSet
 }
 
+function generateAddressDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.inputObligationCount - metricsObject.inputMailingCount,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Members without address information"
+                },
+                {
+                    value: metricsObject.inputMailingCount,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Members with address information"
+                },
+    ];
+    return dataSet
+}
