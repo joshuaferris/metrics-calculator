@@ -16,6 +16,9 @@
     </div>
     <div></div>
     <h2>Political Engagement</h2>
+    <div id="political_holder">
+        <canvas id="political_chart" width="300" height="300" />
+    </div>
     <h2>Contact Avenues</h2>
     <div id="address_holder">
         <canvas id="address_chart" width="300" height="300" />
@@ -43,6 +46,12 @@
             var ctx = $("#dues_chart").get(0).getContext("2d");
             window.duesChart = new Chart(ctx).Pie(duesData, chartOptions);
             $("#dues_chart").after(window.duesChart.generateLegend());
+
+            var political_contributorData = generatePoliticalChartDataSet(parent.seiuMetrics);
+
+            var ctx = $("#political_chart").get(0).getContext("2d");
+            window.politicalChart = new Chart(ctx).Bar(political_contributorData, chartOptions);
+            $("#political_chart").after(window.politicalChart.generateLegend());
 
             var addressData = generateAddressChartDataSet(parent.seiuMetrics);
 

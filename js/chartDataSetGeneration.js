@@ -52,6 +52,24 @@ function generateDuesChartDataSet(metricsObject) {
     return dataSet
 }
 
+function generatePoliticalChartDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.inputObligationCount - metricsObject.inputPoliticalContributorCount,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Members who are not contributing to political funds"
+                },
+                {
+                    value: metricsObject.inputPoliticalContributorCount,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Members who contribute to political funds"
+                }
+    ];
+    return dataSet
+}
+
 function generateAddressDataSet(metricsObject) {
     dataSet = [
                 {
@@ -65,7 +83,7 @@ function generateAddressDataSet(metricsObject) {
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with address information"
-                },
+                }
     ];
     return dataSet
 }
@@ -76,14 +94,14 @@ function generateHomePhoneDataSet(metricsObject) {
                     value: metricsObject.inputObligationCount - metricsObject.inputHomePhoneCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
-                    label: "Members without address information"
+                    label: "Members without home phone information"
                 },
                 {
                     value: metricsObject.inputHomePhoneCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
-                    label: "Members with address information"
-                },
+                    label: "Members with home phone information"
+                }
     ];
     return dataSet
 }
