@@ -1,84 +1,81 @@
-<form>
+<form action="" method="post" name="metrics">
+	{{ form.hidden_tag() }}
   <div class="tab-content">
       <div class="tab-pane" id="tab1">
           <div class="input-group">
               <label for="email">Email Address</label>
-              <input type="text" id="email" name="email" class="form-control" placeholder="Email Address">
+              {{ form.email(class='form-control', placeholder='Email Address') }}
           </div>
           <div class="input-group">
               <label for="local">Local</label>
-              <input type="text" id="local" name="local" class="form-control" placeholder="Local">
+              {{ form.local(class='form-control', placeholder='Local') }}
           </div>
           <div class="input-group">
               <label for="report_type">Report Type</label>
-              <select id="report_type" name="report_type" class="form-control">
-                  <option value="opt1">Type 1</option>
-                  <option value="opt2">Type 2</option>
-                  <option value="opt3">Type 3</option>
-              </select>
+              {{ form.report_type(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="report_name">Report Name</label>
-              <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name">
+              {{ form.report_name(class='form-control',placeholder='Report Name')}}
           </div>
           <div class="input-group">
               <label for="date">As of Date</label>
-              <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy">
-          </div>
+              {{ form.as_of_date(class='form-control', placeholder='mm/dd/yyy') }}
+					</div>
       </div>
       <div class="tab-pane row" id="tab2">
           <div class="input-group">
               <label for="obligation_count">Number of members you are obligated to represent</label>
-              <input type="text" id="obligation_count" name="obligation_count" class="form-control"/>
+              {{ form.obligation_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-              <input type="text" id="full_dues_count" name="full_dues_count" class="form-control"/>
-          </div>
+              {{ form.full_dues_count(class='form-control') }}
+			  </div>
           <div class="input-group">
               <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-              <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control"/>
-          </div>
+              {{ form.partial_dues_count(class='form-control') }}
+        </div>
           <div class="input-group">
               <label for="member_card_count">Number of members who have signed membership cards</label>
-              <input type="text" id="member_card_count" name="member_card_count" class="form-control"/>
-          </div>
+              {{ form.member_card_count(class='form-control') }}
+	      </div>
       </div>
 
       <div class="tab-pane" id="tab3">
           <div class="input-group">
               <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-              <input type="text" id="political_card_count" name="political_card_count" class="form-control"/>
+              {{ form.political_card_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-              <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control"/>
+              {{ form.political_contributor_count(class='form-control') }}
           </div>
       </div>
       <div class="tab-pane" id="tab4">
           <div class="input-group">
               <label for="mailing_count">Number of members with complete mailing addresses</label>
-              <input type="text" id="mailing_count" name="mailing_count" class="form-control"/>
+              {{ form.mailing_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="home_email_count">Number of members with home email addresses</label>
-              <input type="text" id="home_email_ount" name="home_email_count" class="form-control"/>
+              {{ form.home_email_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="work_email_count">Number of members with work email addresses</label>
-              <input type="text" id="work_email_count" name="work_email_count" class="form-control"/>
+              {{ form.work_email_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="sms_count">Number of members who have authorized SMS</label>
-              <input type="text" id="sms_count" name="sms_count" class="form-control"/>
+              {{ form.sms_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="home_phone_count">Number of members who have provided a home phone number</label>
-              <input type="text" id="home_phone_count" name="home_phone_count" class="form-control"/>
+              {{ form.home_phone_count(class='form-control') }}
           </div>
           <div class="input-group">
               <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-              <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control"/>
+              {{ form.cell_phone_count(class='form-control') }}
           </div>
       </div>
       <ul class="pager wizard">

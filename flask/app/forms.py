@@ -1,21 +1,17 @@
 from flask.ext.wtf import Form
-from wtforms.fields import IntegerField,TextField,SelectField
-from wtforms.validators import Required, Email
+from wtforms import IntegerField,StringField,SelectField
+from wtforms.validators import DataRequired, Email
 
 class UnionMetricsForm(Form):
-	email = TextField('Email', validators=[Required(), Email()])
-	local = SelectField('Local', coerce=int) # Turn this into a dropdown or autocomplete
+	email = StringField('Email', validators=[DataRequired(), Email()])
+	local = StringField('Local') # Turn this into a dropdown or autocomplete
 	report_type = SelectField('ReportType',coerce=int)
-	##################################################
-	# Add options for report_type here
-	# report_type.choices = ....
-	##################################################
-	report_name = TextField('ReportName')
-	as_of_date = TextField('AsOfDate', validators=[Required()]) # Also add custom validator for date format
-	obligation_count = IntegerField('ObligationCount', validators=[Required()])
-	full_dues_count = IntegerField('FullDuesCount', validators=[Required()])
-	partial_dues_count = IntegerField('PartialDuesCount', validators=[Required()])
-	member_card_count = IntegerField('MemberCardCount', validators=[Required()])
+	report_name = StringField('ReportName')
+	as_of_date = StringField('AsOfDate', validators=[DataRequired()]) # Also add custom validator for date format
+	obligation_count = IntegerField('ObligationCount', validators=[DataRequired()])
+	full_dues_count = IntegerField('FullDuesCount', validators=[DataRequired()])
+	partial_dues_count = IntegerField('PartialDuesCount', validators=[DataRequired()])
+	member_card_count = IntegerField('MemberCardCount', validators=[DataRequired()])
 	political_card_count = IntegerField('PoliticalCardCount')
 	political_contributor_count = IntegerField('PoliticalContributorCount')
 	mailing_count = IntegerField('MailingCount')
