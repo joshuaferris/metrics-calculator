@@ -47,197 +47,192 @@
     </nav>
 
     <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="col-xs-12">
-          <div class="hero-unit">
-            <h1>Welcome to the SEIU Metrics Calculator</h1>
-          </div>
-          <div class="row-fluid">
-          <div class="row-fluid">
-
-
-            <div class="span11"><a name="#"></a>
-
-                <div id="rootwizard">
-                    <div class="navbar">
-                      <div class="navbar-inner">
-                        <div class="container">
-                            <ul>
-                                <li><a href="#tab1" data-toggle="tab">Your Information</a></li>
-                                <li><a href="#tab2" data-toggle="tab">Member Counts</a></li>
-                                <li><a href="#tab3" data-toggle="tab">Political Engagement</a></li>
-                                <li><a href="#tab4" data-toggle="tab">Contact Avenues</a></li>
-                            </ul>
-                     </div>
-                      </div>
-                    </div>
-                    <div id="bar" class="progress progress-striped active">
-                      <div class="bar"></div>
-                    </div>
-                    <form>
-                        <div class="tab-content">
-                            <div class="tab-pane" id="tab1">
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="email">Email Address</label>
-                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email Address">
+        <div class="row-fluid">
+            <div class="col-xs-12">
+                <div class="hero-unit">
+                    <h1>Welcome to the SEIU Metrics Calculator</h1>
+                </div>
+                <div class="row-fluid">
+                    <form class="navbar-form">
+                        <div class="span11"><a name="#"></a>
+                            <div id="rootwizard">
+                                <div class="navbar">
+                                    <div class="navbar-inner">
+                                        <div class="container">
+                                            <ul>
+                                                <li><a href="#tab1" data-toggle="tab">Your Information</a></li>
+                                                <li><a href="#tab2" data-toggle="tab">Member Counts</a></li>
+                                                <li><a href="#tab3" data-toggle="tab">Political Engagement</a></li>
+                                                <li><a href="#tab4" data-toggle="tab">Contact Avenues</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                     <div class="input-group">
-                                        <label for="local">Local</label>
-                                        <input type="text" id="local" name="local" class="form-control" placeholder="Local">
-                                    </div>                                     
-                                </div>
-         
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="report_type">Report Type</label>
-                                        <select id="report_type" name="report_type" class="form-control">
-                                            <option value="opt1">Type 1</option>
-                                            <option value="opt2">Type 2</option>
-                                            <option value="opt3">Type 3</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="tab1">
 
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="report_name">Report Name</label>
-                                        <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name">
-                                    </div>
-                                </div>
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="email">Email Address</label>
+                                                    <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                 <div class="input-group">
+                                                    <label for="local">Local</label>
+                                                    <input type="text" id="local" name="local" class="form-control" placeholder="Local"/>
+                                                </div>                                     
+                                            </div>
+                     
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="report_type">Report Type</label>
+                                                    <select id="report_type" name="report_type" class="form-control">
+                                                        <option value="opt1">Type 1</option>
+                                                        <option value="opt2">Type 2</option>
+                                                        <option value="opt3">Type 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
 
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="date">As of Date</label>
-                                        <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy">                               
-                                    </div>
-                                </div>                                                                
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="report_name">Report Name</label>
+                                                    <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="date">As of Date</label>
+                                                    <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy"/>                               
+                                                </div>
+                                            </div>                                                                
+                                        </div>
+
+                                        <div class="tab-pane" id="tab2">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="obligation_count">Number of members you are obligated to represent</label>
+                                                    <input type="text" id="obligation_count" name="obligation_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="full_dues_count">Number of members from whom you recieve full dues</label>
+                                                    <input type="text" id="full_dues_count" name="full_dues_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
+                                                    <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="member_card_count">Number of members who have signed membership cards</label>
+                                                    <input type="text" id="member_card_count" name="member_card_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="tab-pane" id="tab3">
+                                            
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
+                                                    <input type="text" id="political_card_count" name="political_card_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
+                                                    <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab4">
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="mailing_count">Number of members with complete mailing addresses</label>
+                                                    <input type="text" id="mailing_count" name="mailing_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="home_email_count">Number of members with home email addresses</label>
+                                                    <input type="text" id="home_email_ount" name="home_email_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="work_email_count">Number of members with work email addresses</label>
+                                                    <input type="text" id="work_email_count" name="work_email_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="sms_count">Number of members who have authorized SMS</label>
+                                                    <input type="text" id="sms_count" name="sms_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="home_phone_count">Number of members who have provided a home phone number</label>
+                                                    <input type="text" id="home_phone_count" name="home_phone_count" class="form-control"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-group">
+                                                    <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
+                                                    <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="pager wizard">
+                                            <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
+                                            <li class="previous"><a href="javascript:;">Previous</a></li>
+                                            <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
+                                            <li class="next"><a href="javascript:;">Next</a></li>
+                                        </ul>
+                                    </div>                    
                             </div>
+                        </div><!--/span-->
 
-                            <div class="tab-pane" id="tab2">
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="obligation_count">Number of members you are obligated to represent</label>
-                                        <input type="text" id="obligation_count" name="obligation_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-                                        <input type="text" id="full_dues_count" name="full_dues_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-                                        <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="member_card_count">Number of members who have signed membership cards</label>
-                                        <input type="text" id="member_card_count" name="member_card_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="tab-pane" id="tab3">
-                                
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-                                        <input type="text" id="political_card_count" name="political_card_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-                                        <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane" id="tab4">
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="mailing_count">Number of members with complete mailing addresses</label>
-                                        <input type="text" id="mailing_count" name="mailing_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="home_email_count">Number of members with home email addresses</label>
-                                        <input type="text" id="home_email_ount" name="home_email_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="work_email_count">Number of members with work email addresses</label>
-                                        <input type="text" id="work_email_count" name="work_email_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="sms_count">Number of members who have authorized SMS</label>
-                                        <input type="text" id="sms_count" name="sms_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="home_phone_count">Number of members who have provided a home phone number</label>
-                                        <input type="text" id="home_phone_count" name="home_phone_count" class="form-control"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-group">
-                                        <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-                                        <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="pager wizard">
-                                <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
-                                <li class="previous"><a href="javascript:;">Previous</a></li>
-                                <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
-                                <li class="next"><a href="javascript:;">Next</a></li>
-                            </ul>
-                        </div>
+                        <div class="span11">
+                            <button type="submit" class="btn btn-default" disabled>Submit</button>
+                        <div>
                     </form>
                 </div>
+                <div class="row-fluid">
+                    <div class="span11"><a id="resources"></a>
+                        <h2>Resources/Help</h2>
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span11"><a id="sample"></a>
+                        <h2>Sample</h2>
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </div>
+                </div><!--/row-->
             </div><!--/span-->
-
-            <div class="span11"><a name="resources"></a>
-                <h2>Resources/Help</h2>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </div>
-
-            <div class="span11"><a name="sample"></a>
-                <h2>Sample</h2>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-            </div>
-
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
-
-
-
-      <hr>
-
+        </div><!--/row-->
+        <hr>
     </div><!--/.fluid-container-->
+
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
