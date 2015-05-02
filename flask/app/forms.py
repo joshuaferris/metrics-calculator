@@ -20,3 +20,37 @@ class UnionMetricsForm(Form):
 	sms_count = IntegerField('SMSCount', validators=[Optional(),NumberRange(min=0)])
 	home_phone_count = IntegerField('HomePhoneCount', validators=[Optional(),NumberRange(min=0)])
 	cell_phone_count = IntegerField('CellPhoneCount', validators=[Optional(),NumberRange(min=0)])
+
+	def is_count_too_high(self, field):
+		if field.data > self.obligation_count.data:
+			field.errors.append('This field cannot be larger than the obligated count')
+			return True
+		return False
+
+	def validate(self):
+		if not Form.validate(self):
+			return False
+		result = True
+		if self.is_count_too_high(self.full_dues_count):
+			result = False
+		if self.is_count_too_high(self.partial_dues_count):
+			result = False
+		if self.is_count_too_high(self.member_card_count):
+			result = False
+		if self.is_count_too_high(self.political_card_count):
+			result = False
+		if self.is_count_too_high(self.political_contributor_count):
+			result = False
+		if self.is_count_too_high(self.mailing_count):
+			result = False
+		if self.is_count_too_high(self.home_email_count):
+			result = False
+		if self.is_count_too_high(self.work_email_count):
+			result = False
+		if self.is_count_too_high(self.sms_count):
+			result = False
+		if self.is_count_too_high(self.home_phone_count):
+			result = False
+		if self.is_count_too_high(self.cell_phone_count):
+			result = False
+		return result
