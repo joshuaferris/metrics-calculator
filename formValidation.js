@@ -18,7 +18,9 @@ function validateIntegerInput(input, context) {
             var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">Zero is not an accepted input value for this field.</div>";
             $(context.target).after(alertString);
         }
-        context.target.value = integerValue;
+        if (!isNaN(integerValue)) {
+            context.target.value = integerValue;
+        }
     }
 }
 
@@ -54,8 +56,9 @@ function validateDateInput(input, context) {
     else {
         //Clear any existing error messages on this field
         $("div[data-source-id='" + sourceID + "']").remove();
-        var dateconversion = new Date(Date.parse(input));
-        context.target.value = dateconversion.toLocaleDateString()
+        var dateConversion = new Date(Date.parse(input));
+        var dateString = (dateConversion.getMonth() + 1) + "/" + (dateConversion.getDate()) + "/" + dateConversion.getFullYear()
+        context.target.value = dateString
     }
 }
 
