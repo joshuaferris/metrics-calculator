@@ -69,3 +69,21 @@ function generateAddressDataSet(metricsObject) {
     ];
     return dataSet
 }
+
+function generateHomePhoneDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.inputObligationCount - metricsObject.inputHomePhoneCount,
+                    color: "#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Members without address information"
+                },
+                {
+                    value: metricsObject.inputHomePhoneCount,
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "Members with address information"
+                },
+    ];
+    return dataSet
+}
