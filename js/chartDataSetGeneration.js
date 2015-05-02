@@ -1,25 +1,25 @@
 function generateUniverseChartDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount,
+                    data: [metricsObject.inputObligationCount],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Number of members you are obligated to represent"
                 },
                 {
-                    value: metricsObject.inputFullDuesCount,
+                    data: [metricsObject.inputFullDuesCount],
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Number of full dues paying members"
                 },
                 {
-                    value: metricsObject.inputPartialDuesCount,
+                    data: [metricsObject.inputPartialDuesCount],
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Number of partial dues paying members"
                 },
                 {
-                    value: metricsObject.inputMemberCardCount,
+                    data: [metricsObject.inputMemberCardCount],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Number of membership card signers"
@@ -89,37 +89,37 @@ function generatePoliticalChartDataSet(metricsObject) {
 function generateContactChartDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsOutput.contact.contactByMailPercentaget,
+                    data: [metricsOutput.contact.contactByMailPercentaget],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members with known mailing addresses"
                 },
                 {
-                    value: metricsOutput.contact.contactByHomeEmailPercentage,
+                    data: [metricsOutput.contact.contactByHomeEmailPercentage],
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with known home email addresses"
                 },
                 {
-                    value: metricsOutput.contact.contactByWorkEmailPercentage,
+                    data: [metricsOutput.contact.contactByWorkEmailPercentage],
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Members with known work email addresses"
                 },
                 {
-                    value: metricsOutput.contact.contactBySMSPercentage,
+                    data: [metricsOutput.contact.contactBySMSPercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members who have provided SMS authorizations"
                 },
                 {
-                    value: metricsOutput.contact.contactByHomePhonePercentage,
+                    data: [metricsOutput.contact.contactByHomePhonePercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known home phone numbers"
                 },
                 {
-                    value: metricsOutput.contact.contactByCellPhonePercentage,
+                    data: [metricsOutput.contact.contactByCellPhonePercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
