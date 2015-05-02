@@ -1,24 +1,50 @@
 function validateIntegerInput(input, context) {
     //Given the value of an input, expecting an integer, and context, the form input element hosting this value
     //format this integer value and set the value of the input field to the formatted version.
-    if (input === "") {
-        //Raise an field error
+    var sourceID = context.target.id;
+    var strippedString = input.replace(/\D/g, "");
+    if (strippedString === "") {
+        var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">An integer input is required.</div>";
+        $(context.target).after(alertString);
     }
     else {
-        var strippedString = input.replace(/\D/g, "");
-        var integerValue = parseInt(strippedString)
+        $("div[data-source-id='" + sourceID + "']").remove();
+        var integerValue = parseInt(strippedString);
         context.target.value = integerValue;
+    }
+}
+
+function validateOptionalIntegerInput(input, context) {
+    //Given the value of an input, expecting an integer, and context, the form input element hosting this value
+    //format this integer value and set the value of the input field to the formatted version.
+    var sourceID = context.target.id;
+    var strippedString = input.replace(/\D/g, "");
+    if (strippedString === "" && input.length > 0) {
+        var alertString = "<div class=\"alert alert-info\" role=\"alert\" data-source-id=" + sourceID + ">We could not read this input.</div>";
+        $(context.target).after(alertString);
+    }
+    else {
+        $("div[data-source-id='" + sourceID + "']").remove();
+        var integerValue = parseInt(strippedString);
+        if (!isNaN(integerValue)) {
+            context.target.value = integerValue;
+        }
     }
 }
 
 function validateDateInput(input, context) {
     //Given the value of an input, expecting some format of date, return a formatted date string
     //Context is used to pass the object to raise a field error against, if the date is invalid
-    if (Date.parse(input).isNan()) {
-        //Raise field error
+    var sourceID = context.target.id;
+    if (isNaN(Date.parse(input))) {
+        var alertString = "<div class=\"alert alert-warning\" role=\"alert\" data-source-id=" + sourceID + ">We could not read this date</div>";
+        $(context.target).after(alertString);
     }
-    var dateconversion = new Date(Date.parse(input));
-    return dateconversion;
+    else {
+        $("div[data-source-id='" + sourceID + "']").remove();
+        var dateconversion = new Date(Date.parse(input));
+        context.target.value = dateconversion.toLocaleDateString()
+    }
 }
 
 function validateLocalName(input, context) {
