@@ -18,9 +18,9 @@ var seiuMetrics = (function(){
 	var inputHomePhoneCount;
 	var inputCellPhoneCount;
 
-	var metricsOutput;
-
 	var self = this;
+
+	var metricsOutput;
 
 	var getInputValues = function(){
 		// Grab the values from the form
@@ -44,7 +44,7 @@ var seiuMetrics = (function(){
 	};
 
 	var calculateMetrics = function(){
-		var metricsOutput = {
+		metricsOutput = {
 			basic: {},
 			member: {},
 			political: {},
@@ -118,7 +118,6 @@ var seiuMetrics = (function(){
 			(self.inputObligationCount !== 0)
 				? ((self.inputCellPhoneCount / self.inputObligationCount) * 100).toFixed(2)
 				:0;
-		console.log(metricsOutput);
 	};
 
 	var getMetricsOutput = function(){
