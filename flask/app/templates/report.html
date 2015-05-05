@@ -18,6 +18,8 @@
                 <th>Text Authorizations</th>
                 <th>Home Phones</th>
                 <th>Cell Phones</th>
+                <th>Fields Entered</th>
+                <th>%</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +36,9 @@
                 <td>{{ data.home_email_count.data }}</td>
                 <td>{{ data.sms_count.data }}</td>
                 <td>{{ data.home_phone_count.data }}</td>
-                <td>{{ data.cell_phone_count.data }}</td>
+                <td>{{ data.cell_phone_count.data }}</td>i
+                <td>{{ count_filled_out }}</td>
+                <td>{{ percent_filled_out|round(2) }}</td>
             </tr>
         </tbody>
     </table>
