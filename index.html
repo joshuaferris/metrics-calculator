@@ -8,6 +8,8 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
+    <link href="css/select2.css" rel="stylesheet">
+    <link href="css/select2-bootstrap.css" rel="stylesheet">
 
     <style type="text/css">
           body {
@@ -81,7 +83,13 @@
                                                 <div class="row">
                                                      <div class="input-group">
                                                         <label for="local">Local</label>
-                                                        <input type="text" id="local" name="local" class="form-control" placeholder="Local"/>
+                                                        <!--<input type="text" id="local" name="local" class="form-control" placeholder="Local"/>-->
+                                                        <select id="local" name="local" class="form-control">
+                                                            <option value="SEIU Local 1">SEIU Local 1</option>
+                                                            <option value="SEIU Local 2.on">SEIU Local 2.on</option>
+                                                            <option value="SEIU Local 32BJ">SEIU Local 32BJ</option>
+                                                            <option value="SEANC SEIU Local 2008">SEANC SEIU Local 2008</option>
+                                                        </select>
                                                     </div>                                     
                                                 </div>
                          
@@ -460,8 +468,11 @@
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <script src="formValidation.js"></script>
     <script src="js/metrics.js"></script>
+    <script src="js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#local").select2();
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
             });
