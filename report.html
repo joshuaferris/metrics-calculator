@@ -23,6 +23,9 @@
     <div id="contact_holder">
         <canvas id="contact_chart" width="300" height="300" />
     </div>
+    <div id="address_holder">
+        <canvas id="address_chart" width="300" height="300" />
+    </div>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/Chart.js"></script>
     <script src="js/Chart.Doughnut.js"></script>
@@ -38,25 +41,31 @@
 
             var ctx = $("#universe1_chart").get(0).getContext("2d");
             window.universeChart = new Chart(ctx).Bar(universeData, chartOptions);
-            $("#universe_chart").after(window.universeChart.generateLegend());
+            //$("#universe_chart").after(window.universeChart.generateLegend());
 
             var duesData = generateDuesChartDataSet(metricsOutput);
 
             var ctx = $("#dues_chart").get(0).getContext("2d");
             window.duesChart = new Chart(ctx).Pie(duesData, chartOptions);
-            $("#dues_chart").after(window.duesChart.generateLegend());
+            //$("#dues_chart").after(window.duesChart.generateLegend());
 
             var political_contributorData = generatePoliticalChartDataSet(metricsOutput);
 
             var ctx = $("#political_chart").get(0).getContext("2d");
             window.politicalChart = new Chart(ctx).Pie(political_contributorData, chartOptions);
-            $("#political_chart").after(window.politicalChart.generateLegend());
+            //$("#political_chart").after(window.politicalChart.generateLegend());
 
             var contactData = generateContactChartDataSet(metricsOutput);
 
             var ctx = $("#contact_chart").get(0).getContext("2d");
             window.contactChart = new Chart(ctx).Bar(contactData, chartOptions);
-            $("#contact_chart").after(window.contactChart.generateLegend());
+            //$("#contact_chart").after(window.contactChart.generateLegend());
+
+            var addressData = generateAddressDataSet(metricsOutput);
+
+            var ctx = $("#address_chart").get(0).getContext("2d");
+            window.addressChart = new Chart(ctx).Pie(addressData, chartOptions);
+            //$("#address_chart").after(window.addressChart.generateLegend());
         });
 
 

@@ -1,30 +1,32 @@
 function generateUniverseChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Count"],
+        datasets: [
                 {
                     data: [metricsObject.raw.inputObligationCount],
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    fillColor: "#F7464A",
+                    highlightFill: "#FF5A5E",
                     label: "Number of members you are obligated to represent"
                 },
                 {
                     data: [metricsObject.raw.inputFullDuesCount],
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    fillColor: "#46BFBD",
+                    highlightFill: "#5AD3D1",
                     label: "Number of full dues paying members"
                 },
                 {
                     data: [metricsObject.raw.inputPartialDuesCount],
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
+                    fillColor: "#FDB45C",
+                    highlightFill: "#FFC870",
                     label: "Number of partial dues paying members"
                 },
                 {
                     data: [metricsObject.raw.inputMemberCardCount],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    fillColor: "#949FB1",
+                    highlightFill: "#A8B3C5",
                     label: "Number of membership card signers"
-                },
-    ];
+                }, ]
+    };
     return dataSet
 }
 
@@ -32,30 +34,30 @@ function generateDuesChartDataSet(metricsObject) {
     var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
-                {
-                    value: metricsObject.raw.inputFullDuesCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Full Dues Paying Members"
-                },
-                {
-                    value: metricsObject.raw.inputPartialDuesCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Partial Dues Paying Members"
-                },
-                {
-                    value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Not Paying Dues"
-                },
-                {
-                    value: unpayingCardSigners,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Number of membership card signers you are not receiving dues from"
-                },
+        {
+            value: metricsObject.raw.inputFullDuesCount,
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Full Dues Paying Members"
+        },
+        {
+            value: metricsObject.raw.inputPartialDuesCount,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Partial Dues Paying Members"
+        },
+        {
+            value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Not Paying Dues"
+        },
+        {
+            value: unpayingCardSigners,
+            color: "#949FB1",
+            highlight: "#A8B3C5",
+            label: "Number of membership card signers you are not receiving dues from"
+        },
     ];
     return dataSet
 }
@@ -87,7 +89,9 @@ function generatePoliticalChartDataSet(metricsObject) {
 }
 
 function generateContactChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Percent"],
+        datasets: [
                 {
                     data: [metricsOutput.contact.contactByMailPercentaget],
                     color: "#F7464A",
@@ -123,8 +127,8 @@ function generateContactChartDataSet(metricsObject) {
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
-                },
-    ];
+                }, ]
+    };
     return dataSet
 }
 
