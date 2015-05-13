@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SEIU Metrics Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SEIU Metrics Calculator">
+    <meta name="author" content="SEIU">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <style type="text/css">
+          body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+          }
+          .sidebar-nav {
+            padding: 9px 0;
+          }
+        </style>
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+  </head>
+  <body>
+      <div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand" href="#">SEIU</a>
+                  </div>
+                  <div id="navbar" class="collapse navbar-collapse">
+                      <ul class="nav navbar-nav">
+                          <li class="active">
+                              <a href="#">Home</a>
+                          </li>
+                          <li>
+                              <a href="#resources">Resources/Help</a>
+                          </li>
+                          <li>
+                              <a href="#sample">Sample</a>
+                          </li>
+                      </ul>
+                  </div><!--/.nav-collapse -->
+              </div>
+          </nav>
+          <div id="sidebar-wrapper">
+              <div><h2>Calculator Help</h2></div>
+              <ul class="sidebar-nav">
+                  <li>
+                      <a href="#">test</a>
+                  </li>
+                  <li>
+                      <a href="#">test</a>
+                  </li>
+                  <li>
+                      <a href="#">test</a>
+                  </li>
+                  <li>
+                      <a href="#">test</a>
+                  </li>
+                  <li>
+                      <a href="#">test</a>
+                  </li>
+              </ul>
+          </div>
+          <div id="page-content-wrapper">
+              <div class="container-fluid">
+                  <div class="row-fluid">
+                      <a id="resources"></a>
+                      <div class="span11">
+                          <h2>
+                              Resources/Help
+                          </h2>
+                          <h3>
+                              Helpful Resources for Data Collection and Analysis
+                          </h3>We've put together this list of helpful resources for your reference. If you have any questions or suggestions, please email xxx@seiu.org. Enjoy!
+                          <div class="well well-lg">
+                              <h4>
+                                  Instructions and FAQs on the Online Calculator
+                              </h4>SEIU Metrics Calculator Frequently Asked Questions
+                              <div class="well well-lg">
+                                  <a href="#faq">The FAQs</a> answer questions such as "why should I use this calculator," "what do you mean by this term," and "where do I get the numbers I need for this calculator."
+                              </div>SEIU Metrics Calculator Manual
+                              <div class="well well-lg">
+                                  <a href="#manual">This manual</a> includes basic instructions on how to use the metrics calculator.
+                              </div>
+                              <h4>
+                                  SEIU Resources
+                              </h4>Teach SEIU
+                              <div class="well well-lg">
+                                  <a href="http://teach.seiu.org">Teach SEIU</a> is a site for the SEIU community with curriculum on leadership development, organizing, administrative and technical skills, and more.
+                              </div>
+                              <h4>
+                                  Data Cleaning Instructions
+                              </h4>Microsoft Office
+                              <div class="well well-lg">
+                                  <a href="https://support.office.com/en-nz/article/Top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19">This article</a>, entitled "Top ten ways to clean your data," details all of the different techniques that you can use to clean data, including links to instructions on how to perform each task.
+                              </div>SQL
+                              <div class="well well-lg">
+                                  <div>
+                                      <a href="https://sqlbits.com/Sessions/Event11/Cleaning_Up_Dirty_Data_with_SSIS">This webinar</a>, entitled "Cleaning Up Dirty Data with SSIS," demonstrates how to use SQL to clean up dirty databases.
+                                  </div>
+                                  <hr>
+                                  <div>
+                                      <a href="http://decisivedata.net/blog/cleaning-messy-data-sql-part-3-sql-functions-clean-strings/">This article</a>, entitled "Cleaning Messy Data in SQL, Part 3: SQL Functions to Clean Strings" includes instructions and a list of functions to help clean messy data in SQL. It is part 3 of a series, which includes a part on fuzzy matching.
+                                  </div>
+                              </div>
+                              <h4>
+                                  Data Cleaning Tools
+                              </h4>OpenRefine
+                              <div class="well well-lg">
+                                  <a href="http://openrefine.org/">OpenRefine</a> formerly known as Google Refine, is a tool to work with messy data to clean it, transform it to a different format, extend it with web services, and link it to databases like Freebase.
+                              </div>Data Wrangler
+                              <div class="well well-lg">
+                                  <a href="http://vis.stanford.edu/wrangler/">Data Wrangler</a>, a project originally based out of Stanford, is a free, interactive tool for data cleaning and transformation.
+                              </div>Data Quality Services in SQL
+                              <div class="well well-lg">
+                                  Data Quality Services is a set of new SQL features that help SQL users clean up their data. <a href="https://msdn.microsoft.com/en-us/library/gg524800.aspx">Here is an article</a> from Microsoft talking about DQS.
+                              </div>
+                              <h4>
+                                  Webinars and Other Tutorials
+                              </h4>AFL-CIO Digital Training Series
+                              <div class="well well-lg">
+                                  The AFL-CIO created <a href="http://act.aflcio.org/content_item/2013-digital-training">a series of webinars</a> on social media, including videos on using Facebook, Twitter, email and analytics, SMS, online ads, and also a webinar entitled "Getting Buy-In."
+                              </div>Coursera
+                              <div class="well well-lg">
+                                  <a href="http://coursera.org">Coursera.org</a> is a free, massive open online course (MOOC) that hosts a wide variety of online classes from universities all over the world. Some classes of note include:
+                                  <ul>
+                                      <li>
+                                          <a href="https://www.coursera.org/course/datascitoolbox">The Data Scientist's Toolbox</a>, from Johns Hopkins University, as well as other courses from their <a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=courseDescripSidebar">Data Science Specialization</a>, including <a href="https://www.coursera.org/course/getdata">Getting and Cleaning Data</a>.
+                                      </li>
+                                      <li>
+                                          <a href="https://www.coursera.org/course/androidpart1">Programming Mobile Applications for Android Handheld Systems</a> from the University of Maryland
+                                      </li>
+                                  </ul>
+                              </div>W3 Schools
+                              <div class="well well-lg">
+                                  <a href="http://w3schools.com">W3Schools.com</a> provides free lessons on a variety of web languages, including HTML/CSS, JavaScript, SQL, PHP, XML, and more. They are not webinars, but rather a series of instructions, with the option to test techniques out in the browser.
+                              </div>Codecademy
+                              <div class="well well-lg">
+                                  <a href="http://www.codecademy.com/">Codecademy</a> offers interactive, online courses in a variety of programming languages including PHP, Ruby on Rails, HTML &amp; CSS, JavaScript, Python, jQuery, and a variety of APIs, including the Sunlight Foundation's APIs.
+                              </div>
+                          </div>
+                          <h3>
+                              Help
+                          </h3><a id="help"></a> <a id="faq"></a>
+                          <h4>
+                              SEIU Metrics Calculator FAQ
+                          </h4>
+                          <div class="well well-lg">
+                              How does the Metrics Calculator help my LOCAL?
+                              <div class="well well-lg">
+                                  It can help you easily see an overview of the health of your Local as it pertains to dues, agency fee payers, membership cards signed, political signers, political payers and contact data compared to the size of your universe. It can help you get a baseline and watch trending for membership card drives, dues audits, political drives, email and sms authorization drives. Also ANYONE from your Local can calculate data as many times as they want. No limits to number of people accessing nor times accessed.
+                              </div>Will this information be uploaded automatically to the International or shared with other SEIU Locals?
+                              <div class="well well-lg">
+                                  No. This tool is a way for any size Local to quickly tabulate counts and percentages at the local level. It is private and not stored or shared. In the future we would like to add capabilities for Locals to save certain data for trending analysis.
+                              </div>What is a "Universe"?
+                              <div class="well well-lg">
+                                  Your "Universe" could be your entire Local, a division, sector, sub-sector, region, chapter or turf. It could also be everyone you're obligated to represent.
+                              </div>Where do I get the numbers from to input into the calculator?
+                              <div class="well well-lg">
+                                  These numbers could be pulled from your dues database or spreadsheets, Finance or Data department personnel, bargaining unit lists or any source where you keep your counts.
+                              </div>Who are partial dues payers?
+                              <div class="well well-lg">
+                                  Members who you get a reduced amount of dues from versus a full-member Examples -"Agency Fee", "Beck Objectors", "Retirees", "Non-Working Members"
+                              </div>What's the difference between "Dues Payers" and "Member Card Signers"
+                              <div class="well well-lg">
+                                  You may have Members who have signed a card who have not yet or never paid dues. They could be new hires, members on extended leaves or the boss for whatever reason is not submitting dues payments to you even though you have a signed card on file.
+                              </div>What is a political card signer?
+                              <div class="well well-lg">
+                                  Someone who has signed a PAC/COPE/ADF card
+                              </div>What's the difference between a political card signer and a political payer?
+                              <div class="well well-lg">
+                                  The political card signers are the members who currently have an active political contribution card on file. A political payer is the number of members from whom you are receiving payments.
+                              </div>Why would we care about Contact Information on our Members?
+                              <div class="well well-lg">
+                                  If you need or want to do outreach or sign-ups via mail, email or text; it's good to know how many addresses, home and or work emails and phone numbers you have stored.
+                              </div><!-- Is there any resource I can use to type my data I pull each month/week etc from the SEIU Metrics 
+                                
+                                Calculator and plug in for trending until the calculator is further built out to include that option?
+                                <div class="well well-lg">
+                                    Yes. Click here ******* and input your final data calculations for your Universe.
+                                </div> -->
+                          </div><a id="manual"></a>
+                          <h4>
+                              SEIU Metrics Calculator Manual
+                          </h4>
+                          <ul>
+                              <li>Introduction to SEIU Metrics Calculator
+                              </li>
+                              <li>Why should I use the SEIU Metrics Calculator
+                              </li>
+                              <li>Inputting Data
+                              </li>
+                              <li>Output Report
+                              </li>
+                          </ul>
+                          <div class="well well-lg">
+                              Introduction to SEIU Metrics Calculator
+                              <div class="well well-lg">
+                                  The Calculator is a web-based online tool that gives SEIU Locals the ability to plug in numbers regarding dues, membership, political contributions and contact information and receive calculations real time. All staff from each SEIU Local can access the calculator. There is no limit to the amount of staff who can sign in at a time and no limit to the amount of times they access the calculator. The Information typed in is not shared automatically with the International nor any other Local.
+                              </div>Why Should I use the SEIU Metrics Calculator
+                              <div class="well well-lg">
+                                  <div>
+                                      We're facing more and more challenges at each Local; right to work, assaults from anti-union groups and legal challenges. For instance, the Supreme Court is currently considering a case that would limit our ability to collect dues from our public sector union members on a national scale. It's always a good idea to take a quick look at how your Local is doing in regards to dues/partial payers, membership cards signed and political contributions/payers.This will help you assess financial health and political power.
+                                  </div>
+                                  <hr>
+                                  <div>
+                                      We need to stay in touch with our Members constantly to keep them informed and engaged; via mail, email, phone and text. In some Locals we are even able to sign Members up and sign up political contributions via mail, email and home/cell phone. Therefore it's helpful to know the percentage of Members you have the ability to reach out to using these different methods.
+                                  </div>
+                              </div>Inputting Data
+                              <div class="well well-lg">
+                                  <div>
+                                      Get your total numbers from your dues database/spreadsheets, Finance or Data personnel or bargaining unit/employer lists. You can then type in the data for any calculations you want to see.
+                                  </div>
+                                  <hr>
+                                  <div>
+                                      For example, let's say you want to know what percentage of dues and partial payers you have along with how many of your political card signers are paying political contributions. Just type in your Universe numbers, your total full dues payers, your total partial dues payers, how many members have signed political cards and how many members are paying political contributions. Once you have scrolled through each of the pages, you can hit "Skip" when you get to the CONTACT page and just hit "Submit", then your summary will appear.
+                                  </div>
+                                  <hr>
+                                  <div>
+                                      If you do not care about a particular data calculation you can always put zeroes for those fields. For example, let's say you only want to know CONTACT percentages for your membership. You would enter the total number in your Universe, then just type in zeroes in the dues, membership card and political fields, then again type in your member totals when you get to the Contact page. You would then hit "Generate Report" to receive your summary.
+                                  </div>
+                              </div>Output Report
+                              <div class="well well-lg">
+                                  Once you have entered all your data, a summary report will pop up on your screen you can print the page. You can also type the numbers into the "Membership Report Calculator Template", located under Resources/Tools to track for trending.
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+<!-- BEGIN FOOTER -->                
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/jquery.bootstrap.wizard.min.js"></script>
+    <script src="formValidation.js"></script>
+    <script src="js/metrics.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
+                validateIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
+                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+            });
+            $('#date').on("change", function (eventObject) {
+                validateDateInput(eventObject.target.value, eventObject)
+            });
+            $('#rootwizard').bootstrapWizard({
+                onTabShow: function (tab, navigation, index) {
+                    var $total = navigation.find('li').length;
+                    var $current = index + 1;
+                    var $percent = ($current / $total) * 100;
+                    $('#rootwizard').find('.bar').css({ width: $percent + '%' });
+                }
+            });
+
+/*            $("#inputForm").submit(function(){
+                var metricsCalc = seiuMetrics;
+                metricsCalc.getInputValues();
+                metricsCalc.calculateMetrics();
+                var metricsData = metricsCalc.getMetricsOutput();
+
+                var pieData = generateDuesChartDataSet(metricsData);
+                var chartOptions = { legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>" }
+                var ctx = $("#universe1_chart").get(0).getContext("2d");
+                window.myPie = new Chart(ctx).Pie(pieData, chartOptions);
+                $("#universe1_chart").after(window.myPie.generateLegend())                
+                return false;
+            });
+*/
+        });
+    </script>
+  </body>                        
+<!-- END FOOTER -->
