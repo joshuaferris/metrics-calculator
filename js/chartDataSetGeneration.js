@@ -93,7 +93,7 @@ function generateContactChartDataSet(metricsObject) {
         labels: ["Percent"],
         datasets: [
                 {
-                    data: [metricsOutput.contact.contactByMailPercentaget],
+                    data: [metricsOutput.contact.contactByMailPercentage],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members with known mailing addresses"
