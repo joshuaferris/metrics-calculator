@@ -68,6 +68,17 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%">
+                                                Completed
+                                            </div>
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width:0%">
+                                                Optional
+                                            </div>
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" style="width:0%">
+                                                Mandatory
+                                            </div>
+                                        </div>
                                     </div>
                                         <div class="tab-content">
                                             <div class="tab-pane" id="tab1">
@@ -75,7 +86,7 @@
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="email">Email Address</label>
-                                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
+                                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email Address" data-weight ="1"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -462,6 +473,11 @@
     <script src="js/metrics.js"></script>
     <script>
         $(document).ready(function () {
+            //Set up progress bar
+            var weightedinputs = $('form :input[data-weight]');
+            
+            console.log(weightedinputs);
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
             });
