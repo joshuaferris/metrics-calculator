@@ -69,14 +69,14 @@
                                             </div>
                                         </div>
                                         <div class="progress">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:0%">
+                                            <div class="progress-bar progress-bar-success" id="progress-completed" role="progressbar" style="width:0%">
                                                 Completed
                                             </div>
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width:0%">
-                                                Optional
-                                            </div>
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" style="width:0%">
+                                            <div class="progress-bar progress-bar-danger" id="progress-mandatory" role="progressbar" style="width:0%">
                                                 Mandatory
+                                            </div>
+                                            <div class="progress-bar progress-bar-warning" id="progress-optional" role="progressbar" style="width:0%">
+                                                Optional
                                             </div>
                                         </div>
                                     </div>
@@ -92,14 +92,14 @@
                                                 <div class="row">
                                                      <div class="input-group">
                                                         <label for="local">Local</label>
-                                                        <input type="text" id="local" name="local" class="form-control" placeholder="Local"/>
+                                                         <input type="text" id="local" name="local" class="form-control" placeholder="Local" data-weight="1" />
                                                     </div>                                     
                                                 </div>
                          
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="report_type">Report Type</label>
-                                                        <select id="report_type" name="report_type" class="form-control">
+                                                        <select id="report_type" name="report_type" class="form-control" data-weight="1">
                                                             <option value="opt1">Type 1</option>
                                                             <option value="opt2">Type 2</option>
                                                             <option value="opt3">Type 3</option>
@@ -110,14 +110,14 @@
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="report_name">Report Name</label>
-                                                        <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name"/>
+                                                        <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name" data-weight="1" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="date">As of Date</label>
-                                                        <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy"/>                               
+                                                        <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy" data-weight="1" />                               
                                                     </div>
                                                 </div>                                                                
                                             </div>
@@ -126,28 +126,28 @@
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="obligation_count">Number of members you are obligated to represent</label>
-                                                        <input type="text" id="obligation_count" name="obligation_count" class="form-control" data-validation-type="mandatory_integer" data-zero-valid="false"/>
+                                                        <input type="text" id="obligation_count" name="obligation_count" class="form-control" data-validation-type="mandatory_integer" data-zero-valid="false" data-weight="10" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-                                                        <input type="text" id="full_dues_count" name="full_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
+                                                        <input type="text" id="full_dues_count" name="full_dues_count" class="form-control" data-validation-type="mandatory_integer" data-weight="10" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-                                                        <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
+                                                        <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control" data-validation-type="mandatory_integer" data-weight="10" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="member_card_count">Number of members who have signed membership cards</label>
-                                                        <input type="text" id="member_card_count" name="member_card_count" class="form-control" data-validation-type="mandatory_integer"/>
+                                                        <input type="text" id="member_card_count" name="member_card_count" class="form-control" data-validation-type="mandatory_integer" data-weight="10" />
                                                     </div>
                                                 </div>
 
@@ -158,14 +158,14 @@
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-                                                        <input type="text" id="political_card_count" name="political_card_count" class="form-control" data-validation-type="mandatory_integer"/>
+                                                        <input type="text" id="political_card_count" name="political_card_count" class="form-control" data-validation-type="mandatory_integer" data-weight="10" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-                                                        <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control" data-validation-type="mandatory_integer"/>
+                                                        <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control" data-validation-type="mandatory_integer" data-weight="10" />
                                                     </div>
                                                 </div>
 
@@ -174,42 +174,42 @@
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="mailing_count">Number of members with complete mailing addresses</label>
-                                                        <input type="text" id="mailing_count" name="mailing_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="mailing_count" name="mailing_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="home_email_count">Number of members with home email addresses</label>
-                                                        <input type="text" id="home_email_ount" name="home_email_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="home_email_ount" name="home_email_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="work_email_count">Number of members with work email addresses</label>
-                                                        <input type="text" id="work_email_count" name="work_email_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="work_email_count" name="work_email_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="sms_count">Number of members who have authorized SMS</label>
-                                                        <input type="text" id="sms_count" name="sms_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="sms_count" name="sms_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="home_phone_count">Number of members who have provided a home phone number</label>
-                                                        <input type="text" id="home_phone_count" name="home_phone_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="home_phone_count" name="home_phone_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="input-group">
                                                         <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-                                                        <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control" data-validation-type="optional_integer"/>
+                                                        <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control" data-validation-type="optional_integer" data-weight="5" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -471,15 +471,15 @@
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <script src="formValidation.js"></script>
     <script src="js/metrics.js"></script>
+    <script src="js/progressBarEvents.js"></script>
     <script>
         $(document).ready(function () {
-            //Set up progress bar
-            var weightedinputs = $('form :input[data-weight]');
             
-            console.log(weightedinputs);
+            initializeProgressBar()
 
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
+                updateProgressBar()
             });
             $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
                 validateOptionalIntegerInput(eventObject.target.value, eventObject)
