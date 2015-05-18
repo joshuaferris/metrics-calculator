@@ -8,16 +8,40 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
 
     <style type="text/css">
-          body {
+        body {
             padding-top: 60px;
             padding-bottom: 40px;
-          }
-          .sidebar-nav {
+        }
+        .sidebar-nav {
             padding: 9px 0;
+        }
+
+        #form-wrapper{
+            max-width: 800px;
+            margin: 0 auto;
+        }  
+
+        .row{
+             border-bottom: 1px dashed rgba(0,0,0,.3);
+             padding: .5em 0;
+        }
+
+         #form-wrapper label{line-height: 3em;}
+         #form-wrapper div.row div[class^="col-md-"]:nth-child(2){float: right;} 
+
+         #btnSubmit{float:right;}
+
           }
-        </style>
+          a.anchor{
+            display: block;
+            position: relative;
+            top: -60px;
+            visibility: hidden;
+          }
+    </style>
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -39,421 +63,222 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#resources">Resources/Help</a></li>
-                <li><a href="#sample">Sample</a></li>
+                <li class="active"><a href="index.html">Calculator</a></li>
+                <li><a href="resources.html">Help/Resources</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="col-xs-12">
-                    <div class="hero-unit">
+        <div id="page-content-wrapper">
+            <div id="form-wrapper">
+                <div class="container-fluid">
+                    <div class="row-fluid">                         
                         <h1>Welcome to the SEIU Metrics Calculator</h1>
                     </div>
+
                     <div class="row-fluid">
-                        <form class="navbar-form" id="inputForm" method="POST" action="report.html">
-                            <div class="span11"><a name="#"></a>
-                                <div id="rootwizard">
-                                    <div class="navbar">
-                                        <div class="navbar-inner">
-                                            <div class="container">
-                                                <ul>
-                                                    <li><a href="#tab1" data-toggle="tab">Your Information</a></li>
-                                                    <li><a href="#tab2" data-toggle="tab">Member Counts</a></li>
-                                                    <li><a href="#tab3" data-toggle="tab">Political Engagement</a></li>
-                                                    <li><a href="#tab4" data-toggle="tab">Contact Avenues</a></li>
-                                                </ul>
-                                            </div>
+                        <form class="form-horizontal" id="inputForm" method="POST" action="report.html">
+<!-- FORM INPUTS -->
+                            <div id="rootwizard">
+                                <div class="navbar">
+                                    <div class="navbar-inner">
+                                        <div class="container">
+                                            <ul>
+                                                <li><a href="#tab1" data-toggle="tab">Your Information</a></li>
+                                                <li><a href="#tab2" data-toggle="tab">Member Counts</a></li>
+                                                <li><a href="#tab3" data-toggle="tab">Political Engagement</a></li>
+                                                <li><a href="#tab4" data-toggle="tab">Contact Avenues</a></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                        <div class="tab-content">
-                                            <div class="tab-pane" id="tab1">
+                                </div>
+                                    <div class="tab-content">
+                                        
+                                        <div class="tab-pane" id="tab1">
 
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="email">Email Address</label>
-                                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email Address"/>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="email">Email Address</label>
                                                 </div>
-                                                <div class="row">
-                                                     <div class="input-group">
-                                                        <label for="local">Local</label>
-                                                        <input type="text" id="local" name="local" class="form-control" placeholder="Local"/>
-                                                    </div>                                     
+                                                <div class="col-md-4 ">
+                                                    <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Email Address"/>
                                                 </div>
-                         
-                                                <div class="row">
-                                                    <div class="input-group">
+                                            </div>
+                                            <div class="row">                                                 
+                                                <div class="col-md-4">
+                                                    <label for="local">Local</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="local" name="local" class="form-control input-lg" placeholder="Local"/>
+                                                </div>
+                                            </div>
+                     
+                                            <div class="row">
+                                                    <div class="col-md-4">
                                                         <label for="report_type">Report Type</label>
-                                                        <select id="report_type" name="report_type" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select id="report_type" name="report_type" class="col-md-4 form-control input-lg">
                                                             <option value="opt1">Type 1</option>
                                                             <option value="opt2">Type 2</option>
                                                             <option value="opt3">Type 3</option>
                                                         </select>
                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="report_name">Report Name</label>
-                                                        <input type="text" id="report_name" name="report_name" class="form-control" placeholder="Report Name"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="date">As of Date</label>
-                                                        <input type="text" id="date" name="date" class="form-control" placeholder="mm/dd/yyyy"/>                               
-                                                    </div>
-                                                </div>                                                                
                                             </div>
 
-                                            <div class="tab-pane" id="tab2">
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="obligation_count">Number of members you are obligated to represent</label>
-                                                        <input type="text" id="obligation_count" name="obligation_count" class="form-control" data-validation-type="mandatory_integer" data-zero-valid="false"/>
-                                                    </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="report_name">Report Name</label>
                                                 </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-                                                        <input type="text" id="full_dues_count" name="full_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-                                                        <input type="text" id="partial_dues_count" name="partial_dues_count" class="form-control" data-validation-type="mandatory_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="member_card_count">Number of members who have signed membership cards</label>
-                                                        <input type="text" id="member_card_count" name="member_card_count" class="form-control" data-validation-type="mandatory_integer"/>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="tab-pane" id="tab3">
-                                                
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-                                                        <input type="text" id="political_card_count" name="political_card_count" class="form-control" data-validation-type="mandatory_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-                                                        <input type="text" id="political_contributor_count" name="political_contributor_count" class="form-control" data-validation-type="mandatory_integer"/>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="tab-pane" id="tab4">
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="mailing_count">Number of members with complete mailing addresses</label>
-                                                        <input type="text" id="mailing_count" name="mailing_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="home_email_count">Number of members with home email addresses</label>
-                                                        <input type="text" id="home_email_ount" name="home_email_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="work_email_count">Number of members with work email addresses</label>
-                                                        <input type="text" id="work_email_count" name="work_email_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="sms_count">Number of members who have authorized SMS</label>
-                                                        <input type="text" id="sms_count" name="sms_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="home_phone_count">Number of members who have provided a home phone number</label>
-                                                        <input type="text" id="home_phone_count" name="home_phone_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="input-group">
-                                                        <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-                                                        <input type="text" id="cell_phone_count" name="cell_phone_count" class="form-control" data-validation-type="optional_integer"/>
-                                                    </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="report_name" name="report_name" class="form-control input-lg" placeholder="Report Name"/>
                                                 </div>
                                             </div>
-                                            <ul class="pager wizard">
-                                                <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
-                                                <li class="previous"><a href="javascript:;">Previous</a></li>
-                                                <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
-                                                <li class="next"><a href="javascript:;">Next</a></li>
-                                            </ul>
-                                        </div>                    
-                                </div>
-                            </div><!--/span-->
 
-                            <div class="span11">
-                                <button type="submit" class="btn btn-default" id="btnSubmit">Generate Report</button>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="date">As of Date</label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" id="date" name="date" class="form-control input-lg" placeholder="mm/dd/yyyy"/>
+                                                </div>
+                                            </div>                                                                
+                                        </div>
+
+                                        <div class="tab-pane" id="tab2">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="obligation_count">Number of members you are obligated to represent</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="obligation_count" name="obligation_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-zero-valid="false"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="full_dues_count">Number of members from whom you recieve full dues</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="full_dues_count" name="full_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="partial_dues_count" name="partial_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="member_card_count">Number of members who have signed membership cards</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="member_card_count" name="member_card_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="tab-pane" id="tab3">
+                                            
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="political_card_count" name="political_card_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="political_contributor_count" name="political_contributor_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab4">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="mailing_count">Number of members with complete mailing addresses</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="mailing_count" name="mailing_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="home_email_count">Number of members with home email addresses</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="home_email_ount" name="home_email_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="work_email_count">Number of members with work email addresses</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="work_email_count" name="work_email_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="sms_count">Number of members who have authorized SMS</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="sms_count" name="sms_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="home_phone_count">Number of members who have provided a home phone number</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="home_phone_count" name="home_phone_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="number" id="cell_phone_count" name="cell_phone_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="pager wizard">
+                                            <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
+                                            <li class="previous"><a href="javascript:;">Previous</a></li>
+                                            <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
+                                            <li class="next"><a href="javascript:;">Next</a></li>
+                                        </ul>
+                                    </div>                    
+                            </div>
+<!-- /FORM INPUTS -->
+                            <div>
+                                <button type="submit" class="btn btn-primary" id="btnSubmit">Generate Report</button>
                             <div>
                         </form>
-                    </div>
-                    <div class="row-fluid">
-                        <a id="resources"></a>
-                        <div class="span11">
-                            <h2>Resources/Help</h2>
-                            
-                            <h3>Helpful Resources for Data Collection and Analysis</h3>
-                            
-                                We've put together this list of helpful resources for your reference. If you have any questions or suggestions, please email xxx@seiu.org. Enjoy!
-                                
-                                <div class="well well-lg">
-                                    <h4>Instructions and FAQs on the Online Calculator</h4>
-
-                                    SEIU Metrics Calculator Frequently Asked Questions
-                                    <div class="well well-lg">
-                                        <a href="#faq">The FAQs</a> answer questions such as "why should I use this calculator," "what do you mean by this term," and "where do I get the numbers I need for this calculator."
-                                    </div>
-
-                                    SEIU Metrics Calculator Manual
-                                    <div class="well well-lg">
-                                        <a href="#manual">This manual</a> includes basic instructions on how to use the metrics calculator.
-                                    </div>
-
-                                    <h4>SEIU Resources</h4>
-
-                                    Teach SEIU
-                                    <div class="well well-lg">
-                                        <a href="http://teach.seiu.org">Teach SEIU</a> is a site for the SEIU community with curriculum on leadership development, organizing, administrative and technical skills, and more.
-                                    </div>
-
-                                    <h4>Data Cleaning Instructions</h4>
-
-                                    Microsoft Office
-                                    <div class="well well-lg">
-                                        <a href="https://support.office.com/en-nz/article/Top-ten-ways-to-clean-your-data-2844b620-677c-47a7-ac3e-c2e157d1db19">This article</a>, entitled "Top ten ways to clean your data," details all of the different techniques that you can use to clean data, including links to instructions on how to perform each task.
-                                    </div>
-
-                                    SQL
-                                    <div class="well well-lg">
-                                        <div>
-                                            <a href="https://sqlbits.com/Sessions/Event11/Cleaning_Up_Dirty_Data_with_SSIS">This webinar</a>, entitled "Cleaning Up Dirty Data with SSIS," demonstrates how to use SQL to clean up dirty databases.
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <a href="http://decisivedata.net/blog/cleaning-messy-data-sql-part-3-sql-functions-clean-strings/">This article</a>, entitled "Cleaning Messy Data in SQL, Part 3: SQL Functions to Clean Strings" includes instructions and a list of functions to help clean messy data in SQL. It is part 3 of a series, which includes a part on fuzzy matching. 
-                                        </div>
-                                    </div>
-
-                                    <h4>Data Cleaning Tools</h4>
-
-                                    OpenRefine
-                                    <div class="well well-lg">
-                                        <a href="http://openrefine.org/">OpenRefine</a> formerly known as Google Refine, is a tool to work with messy data to clean it, transform it to a different format, extend it with web services, and link it to databases like Freebase. 
-                                    </div>
-
-                                    Data Wrangler
-                                    <div class="well well-lg">
-                                        <a href="http://vis.stanford.edu/wrangler/">Data Wrangler</a>, a project originally based out of Stanford, is a free, interactive tool for data cleaning and transformation.
-                                    </div>
-
-                                    Data Quality Services in SQL
-                                    <div class="well well-lg">
-                                        Data Quality Services is a set of new SQL features that help SQL users clean up their data. <a href="https://msdn.microsoft.com/en-us/library/gg524800.aspx">Here is an article</a> from Microsoft talking about DQS.
-                                    </div>
-
-                                    <h4>Webinars and Other Tutorials</h4>
-
-                                    AFL-CIO Digital Training Series
-                                    <div class="well well-lg">
-                                        The AFL-CIO created <a href="http://act.aflcio.org/content_item/2013-digital-training">a series of webinars</a> on social media, including videos on using Facebook, Twitter, email and analytics, SMS, online ads, and also a webinar entitled "Getting Buy-In."
-                                    </div>
-
-                                    Coursera
-                                    <div class="well well-lg">
-                                        <a href="http://coursera.org">Coursera.org</a> is a free, massive open online course (MOOC) that hosts a wide variety of online classes from universities all over the world. Some classes of note include:
-                                        <ul>
-                                            <li>
-                                                <a href="https://www.coursera.org/course/datascitoolbox">The Data Scientist's Toolbox</a>, from Johns Hopkins University, as well as other courses from their <a href="https://www.coursera.org/specialization/jhudatascience/1?utm_medium=courseDescripSidebar">Data Science Specialization</a>, including <a href="https://www.coursera.org/course/getdata">Getting and Cleaning Data</a>.
-                                            </li>
-                                            <li>
-                                                <a href="https://www.coursera.org/course/androidpart1">Programming Mobile Applications for Android Handheld Systems</a> from the University of Maryland
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    W3 Schools
-                                    <div class="well well-lg">
-                                        <a href="http://w3schools.com">W3Schools.com</a> provides free lessons on a variety of web languages, including HTML/CSS, JavaScript, SQL, PHP, XML, and more. They are not webinars, but rather a series of instructions, with the option to test techniques out in the browser.
-                                    </div>
-
-                                    Codecademy
-                                    <div class="well well-lg">
-                                        <a href="http://www.codecademy.com/">Codecademy</a> offers interactive, online courses in a variety of programming languages including PHP, Ruby on Rails, HTML & CSS, JavaScript, Python, jQuery, and a variety of APIs, including the Sunlight Foundation's APIs.
-                                    </div>
-                                </div>
-                            <h3>Help</h3><a id="help"></a></a>
-                                <a id="faq"></a>
-                                <h4>SEIU Metrics Calculator FAQ</h4>
-                                <div class="well well-lg">
-                                    How does the Metrics Calculator help my LOCAL?
-                                    <div class="well well-lg">
-
-                                        It can help you easily see an overview of the health of your Local as it pertains to dues, agency fee payers, 
-
-                                        membership cards signed, political signers, political payers and contact data compared to the size of your 
-
-                                        universe. It can help you get a baseline and watch trending for membership card drives, dues audits, 
-
-                                        political drives, email and sms authorization drives.  Also ANYONE from your Local can calculate data as 
-
-                                        many times as they want. No limits to number of people accessing nor times accessed.
-                                    </div>
-                                    Will this information be uploaded automatically to the International or shared with other SEIU Locals? 
-                                    <div class="well well-lg">
-                                        No. This tool is a way for any size Local to quickly tabulate counts and percentages at the local level. It is 
-
-                                        private and not stored or shared. In the future we would like to add capabilities for Locals to save certain 
-
-                                        data for trending analysis.
-                                    </div>
-                                    What is a "Universe"?
-                                    <div class="well well-lg">
-                                        Your "Universe" could be your entire Local, a division, sector, sub-sector, region, chapter or turf. It could 
-
-                                        also be everyone you're obligated to represent. 
-                                    </div>
-                                    Where do I get the numbers from to input into the calculator?
-                                    <div class="well well-lg">
-                                        These numbers could be pulled from your dues database or spreadsheets, Finance or Data department 
-
-                                        personnel, bargaining unit lists or any source where you keep your counts.
-                                    </div>
-                                    Who are partial dues payers?
-                                    <div class="well well-lg">
-                                        Members who you get a reduced amount of dues from versus a full-member
-
-                                        Examples -"Agency Fee", "Beck Objectors", "Retirees", "Non-Working Members"
-                                    </div>
-                                    What's the difference between "Dues Payers" and "Member Card Signers"
-                                    <div class="well well-lg">
-                                        You may have Members who have signed a card who have not yet or never paid dues. They could be new 
-
-                                        hires, members on extended leaves or the boss for whatever reason is not submitting dues payments to 
-
-                                        you even though you have a signed card on file.
-                                    </div>
-                                    What is a political card signer?
-                                    <div class="well well-lg">
-                                        Someone who has signed a PAC/COPE/ADF card
-                                    </div>
-                                    What's the difference between a political card signer and a political payer?
-                                    <div class="well well-lg">
-                                        The political card signers are the members who currently have an active political contribution card on file. 
-
-                                        A political payer is the number of members from whom you are receiving payments.
-                                    </div>
-                                    Why would we care about Contact Information on our Members?
-                                    <div class="well well-lg">
-                                        If you need or want to do outreach or sign-ups via mail, email or text; it's good to know how many 
-
-                                        addresses, home and or work emails and phone numbers you have stored.
-                                    </div>                              
-                                    <!-- Is there any resource I can use to type my data I pull each month/week etc from the SEIU Metrics 
-                                    
-                                    Calculator and plug in for trending until the calculator is further built out to include that option?
-                                    <div class="well well-lg">
-                                        Yes. Click here ******* and input your final data calculations for your Universe.
-                                    </div> -->
-                                </div>
-
-                                <a id="manual"></a>
-                                <h4>SEIU Metrics Calculator Manual</h4>
-
-                                <ul>
-                                    <li>Introduction to SEIU Metrics Calculator</li>
-                                    <li>Why should I use the SEIU Metrics Calculator</li>
-                                    <li>Inputting Data</li>
-                                    <li>Output Report</li>
-                               </ul>
-
-                                <div class="well well-lg">
-                                    Introduction to SEIU Metrics Calculator
-                                    <div class="well well-lg">
-                                        The Calculator is a web-based online tool that gives SEIU Locals the ability to plug in numbers regarding dues, membership, political contributions and contact information and receive calculations real time. All staff from each SEIU Local can access the calculator. There is no limit to the amount of staff who can sign in at a time and no limit to the amount of times they access the calculator. The Information typed in is not shared automatically with the International nor any other Local. 
-                                    </div>
-                                    Why Should I use the SEIU Metrics Calculator
-                                    <div class="well well-lg">
-                                        <div>
-                                            We're facing more and more challenges at each Local; right to work, assaults from anti-union groups and legal challenges. For instance, the Supreme Court is currently considering a case that would limit our ability to collect dues from our public sector union members on a national scale. It's always a good idea to take a quick look at how your Local is doing in regards to dues/partial payers, membership cards signed and political contributions/payers.This will help you assess financial health and political power.
-                                        </div>
-                                        <hr>
-                                       <div>
-                                            We need to stay in touch with our Members constantly to keep them informed and engaged; via mail, email, phone and text. In some Locals we are even able to sign Members up and sign up political contributions via mail, email and home/cell phone. Therefore it's helpful to know the percentage of Members you have the ability to reach out to using these different methods. 
-                                        </div>
-                                    </div>
-
-                                    Inputting Data
-                                    <div class="well well-lg">
-                                        <div>
-                                            Get your total numbers from your dues database/spreadsheets, Finance or Data personnel or bargaining unit/employer lists. You can then type in the data for any calculations you want to see. 
-                                        </div>         
-                                        <hr>                           
-                                        <div>
-                                            For example, let's say you want to know what percentage of dues and partial payers you have along with how many of your political card signers are  paying political contributions. Just type in your Universe numbers, your total full dues payers, your total partial dues payers, how many members have signed political cards and how many members are paying political contributions. Once you have scrolled through each of the pages, you can hit "Skip" when you get to the CONTACT page and just hit "Submit", then your summary will appear.
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            If you do not care about a particular data calculation you can always put zeroes for those fields. For example, let's say you only want to know CONTACT percentages for your membership. You would enter the total number in your Universe, then just type in zeroes in the dues, membership card and political fields, then again type in your member totals when you get to the Contact page. You would then hit "Generate Report" to receive your summary. 
-                                        </div>
-                                    </div>
-                                    Output Report
-                                    <div class="well well-lg">
-                                        Once you have entered all your data, a summary report will pop up on your screen you can print the page. You can also type the numbers into the "Membership Report Calculator Template", located under Resources/Tools to track for trending.
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span11"><a id="sample"></a>
-                            <h2>Sample</h2>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        </div>
-                    </div><!--/row-->
-                </div><!--/span-->
-            </div><!--/row-->
-            <hr>
-        </div><!--/.fluid-container-->
-    </div>
-
-<!--     <div id="reportContainer">
-        <h1 id="report_title">Placeholder Title</h1>
-        <h2>Universe</h2>
-        <div id="universe1_holder">
-            <canvas id="universe1_chart" width="300" height="300" />
-        </div>
-        <h2>Political Engagement</h2>
-        <h2>Contact Avenues</h2>
-</div> -->
+                    </div> <!-- /row -->                    
+                </div><!--/.fluid-container-->
+            </div> <!--/#form-wrapper-->
+        </div><!--/#page-content-wrapper -->
+    </div> <!-- /#inputContainer-->
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
