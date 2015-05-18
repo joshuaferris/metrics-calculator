@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Email, Length, NumberRange, Optiona
 
 class UnionMetricsForm(Form):
 	email = StringField('Email', validators=[DataRequired('You must enter an email address.'), Email(),Length(max=60)])
-	local = StringField('Local', validators=[DataRequired('You must enter a local'), Length(max=120)]) # Turn this into a dropdown or autocomplete
+	local = SelectField('Local', coerce=int) # Turn this into a dropdown or autocomplete
 	report_type = SelectField('ReportType',coerce=int)
 	report_name = StringField('ReportName')
 	as_of_date = DateField('AsOfDate', validators=[DataRequired('You must enter a valid date')],format='%m/%d/%Y') # Also add custom validator for date format

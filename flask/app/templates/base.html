@@ -8,6 +8,8 @@
     <!-- Bootstrap -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/app.css" rel="stylesheet">
+    <link href="static/css/select2.css" rel="stylesheet">
+    <link href="static/css/select2-bootstrap.css" rel="stylesheet">
 
     <style type="text/css">
           body {
@@ -52,13 +54,16 @@
                 <div class="hero-unit">
                     <h1>Welcome to the SEIU Metrics Calculator</h1>
                 </div>
-				{% block content %}{% endblock %}
+                {% block content %}{% endblock %}
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="static/js/jquery.bootstrap.wizard.min.js"></script>
     <script src="static/js/formValidation.js"></script>
+    <script src="static/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#local").select2();
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
             });
