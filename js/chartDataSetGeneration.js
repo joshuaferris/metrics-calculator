@@ -94,37 +94,37 @@ function generateContactChartDataSet(metricsObject) {
         datasets: [
                 {
                     data: [metricsOutput.contact.contactByMailPercentage],
-                    color: "#F7464A",
+                    fillColor: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members with known mailing addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactByHomeEmailPercentage],
-                    color: "#46BFBD",
+                    fillColor: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with known home email addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactByWorkEmailPercentage],
-                    color: "#FDB45C",
+                    fillColor: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Members with known work email addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactBySMSPercentage],
-                    color: "#949FB1",
+                    fillColor: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members who have provided SMS authorizations"
                 },
                 {
                     data: [metricsOutput.contact.contactByHomePhonePercentage],
-                    color: "#949FB1",
+                    fillColor: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known home phone numbers"
                 },
                 {
                     data: [metricsOutput.contact.contactByCellPhonePercentage],
-                    color: "#949FB1",
+                    fillColor: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
                 }, ]
@@ -154,13 +154,13 @@ function generateHomePhoneDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomePhoneCount,
-                    color: "#F7464A",
+                    fillColor: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members without home phone information"
                 },
                 {
                     value: metricsObject.raw.inputHomePhoneCount,
-                    color: "#46BFBD",
+                    fillColor: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with home phone information"
                 }
