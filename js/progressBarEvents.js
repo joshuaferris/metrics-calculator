@@ -19,9 +19,13 @@ function initializeProgressBar() {
     var mandatorymaxpercentage = totalmandatoryweight / totalweight * 100
     var optionalmaxpercentage = totaloptionalweight / totalweight * 100
 
-    $('#progress-mandatory').css('width', mandatorymaxpercentage + '%').attr('aria-valuenow', totalmandatoryweight).attr('aria-valuemax', totalweight).attr('data-max-percentage', mandatorymaxpercentage);
-    $('#progress-optional').css('width', optionalmaxpercentage + '%').attr('aria-valuenow', totaloptionalweight).attr('aria-valuemax', totalweight).attr('data-max-percentage', optionalmaxpercentage);
-    $('#progress-completed').css('width', 0 + '%').attr('aria-valuenow', 0).attr('aria-valuemax', totalweight);
+    $('#progress-mandatory').css('width', mandatorymaxpercentage + '%').attr('aria-valuenow', totalmandatoryweight).attr('aria-valuemax', totalmandatoryweight).attr('data-max-percentage', mandatorymaxpercentage);
+    $('#progress-optional').css('width', optionalmaxpercentage + '%').attr('aria-valuenow', totaloptionalweight).attr('aria-valuemax', totaloptionalweight).attr('data-max-percentage', optionalmaxpercentage);
+    $('#progress-completed').css('width', 0 + '%').attr('aria-valuenow', 0).attr('aria-valuemax', totalweight).attr('data-max-percentage', 100);
+
+    $('form :input[data-weight]').on("change", function (eventObject) {
+        updateProgressBar();
+    });
 }
 
 function updateProgressBar() {
@@ -43,11 +47,11 @@ function updateProgressBar() {
         else {
             totalmandatoryincomplete = totalmandatoryincomplete + parseInt(weightedinputs[i].dataset.weight);
         }
-    }
+    };
 
-    var percentcomplete = totalcompleted / parseInt($('#progress-completed').attr('aria-valuemax'));
-    var percentmandatoryincomplete = totalmandatoryincomplete / parseInt($('#progress-mandatory').attr('aria-valuemax')) * parseFloat($('#progress-mandatory').attr('data-max-percentage'));
-    var percentoptionalincomplete = totaloptionalincomplete / parseInt($('#progress-optional').attr('aria-valuemax')) * parseFloat($('#progress-mandatory').attr('data-max-percentage'));
+    var percentcomplete = totalcompleted / parseFloat($('#progress-completed').attr('aria-valuemax')) * parseFloat($('#progress-completed').attr('data-max-percentage'));
+    var percentmandatoryincomplete = totalmandatoryincomplete / parseFloat($('#progress-mandatory').attr('aria-valuemax')) * parseFloat($('#progress-mandatory').attr('data-max-percentage'));
+    var percentoptionalincomplete = totaloptionalincomplete / parseFloat($('#progress-optional').attr('aria-valuemax')) * parseFloat($('#progress-optional').attr('data-max-percentage'));
 
     $('#progress-mandatory').css('width', percentmandatoryincomplete + '%').attr('aria-valuenow', totalmandatoryincomplete);
     $('#progress-optional').css('width', percentoptionalincomplete + '%').attr('aria-valuenow', totaloptionalincomplete);

@@ -75,7 +75,7 @@
                                             <div class="progress-bar progress-bar-danger" id="progress-mandatory" role="progressbar" style="width:0%">
                                                 Mandatory
                                             </div>
-                                            <div class="progress-bar progress-bar-warning" id="progress-optional" role="progressbar" style="width:0%">
+                                            <div class="progress-bar progress-bar-info" id="progress-optional" role="progressbar" style="width:0%">
                                                 Optional
                                             </div>
                                         </div>
@@ -475,17 +475,16 @@
     <script>
         $(document).ready(function () {
             
-            initializeProgressBar()
+            initializeProgressBar();
 
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
-                validateIntegerInput(eventObject.target.value, eventObject)
-                updateProgressBar()
+                validateIntegerInput(eventObject.target.value, eventObject);
             });
             $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
-                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+                validateOptionalIntegerInput(eventObject.target.value, eventObject);
             });
             $('#date').on("change", function (eventObject) {
-                validateDateInput(eventObject.target.value, eventObject)
+                validateDateInput(eventObject.target.value, eventObject);
             });
             $('#rootwizard').bootstrapWizard({
                 onTabShow: function (tab, navigation, index) {
