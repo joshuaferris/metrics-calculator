@@ -80,7 +80,7 @@ function generatePoliticalChartDataSet(metricsObject) {
                 },
                 {
                     value: unpayingCardSigners,
-                    color: "#46BFBD",
+                    color: "#FDB45C",
                     highlight: "#5AD3D1",
                     label: "Members who have committed to contributing political funds, but not receiving payment for."
                 }
@@ -118,13 +118,13 @@ function generateContactChartDataSet(metricsObject) {
                 },
                 {
                     data: [metricsOutput.contact.contactByHomePhonePercentage],
-                    fillColor: "#949FB1",
+                    fillColor: "#99583D",
                     highlight: "#A8B3C5",
                     label: "Members with known home phone numbers"
                 },
                 {
                     data: [metricsOutput.contact.contactByCellPhonePercentage],
-                    fillColor: "#949FB1",
+                    fillColor: "#54CC14",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
                 }, ]
