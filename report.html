@@ -131,8 +131,33 @@
         <div id="contact_holder">
             <canvas id="contact_chart" width="300" height="300" />
         </div>
+        <table>
+            <tr>
+                <td id="address_holder">
+                    <canvas id="address_chart" width="150" height="150" />
+                </td>
+                <td id="home_phone_holder">
+                    <canvas id="home_phone_chart" width="150" height="150" />
+                </td>
+                <td id="cell_phone_holder">
+                    <canvas id="cell_phone_chart" width="150" height="150" />
+                </td>
+            </tr>
+            <tr>
+                <td id="sms_holder">
+                    <canvas id="sms_chart" width="150" height="150" />
+                </td>
+                <td id="home_email_holder">
+                    <canvas id="home_email_chart" width="150" height="150" />
+                </td>
+                <td id="work_email_holder">
+                    <canvas id="work_email_chart" width="150" height="150" />
+                </td>
+            </tr>
+        </table>
     </div>
 
+    <!--
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2 class="panel-title">Addresses, Overall</h2>
@@ -141,6 +166,7 @@
             <canvas id="address_chart" width="300" height="300" />
         </div>
     </div>
+    -->
 
     <div id="chartjs-tooltip"></div>
  </div>
@@ -228,6 +254,36 @@
             var ctx = $("#address_chart").get(0).getContext("2d");
             window.addressChart = new Chart(ctx).Pie(addressData, pieChartOptions);
             $("#address_chart").after(window.addressChart.generateLegend());
+
+            var homePhoneData = generateHomePhoneDataSet(metricsOutput);
+
+            var ctx = $("#home_phone_chart").get(0).getContext("2d");
+            window.homePhoneChart = new Chart(ctx).Pie(homePhoneData, pieChartOptions);
+            $("#home_phone_chart").after(window.homePhoneChart.generateLegend());
+
+            var cellPhoneData = generateCellPhoneDataSet(metricsOutput);
+
+            var ctx = $("#cell_phone_chart").get(0).getContext("2d");
+            window.cellPhoneChart = new Chart(ctx).Pie(cellPhoneData, pieChartOptions);
+            $("#cell_phone_chart").after(window.cellPhoneChart.generateLegend());
+
+            var smsData = generateSmsDataSet(metricsOutput);
+
+            var ctx = $("#sms_chart").get(0).getContext("2d");
+            window.smsChart = new Chart(ctx).Pie(smsData, pieChartOptions);
+            $("#sms_chart").after(window.smsChart.generateLegend());
+
+            var homeEmailData = generateHomeEmailDataSet(metricsOutput);
+
+            var ctx = $("#home_email_chart").get(0).getContext("2d");
+            window.homeEmailChart = new Chart(ctx).Pie(homeEmailData, pieChartOptions);
+            $("#home_email_chart").after(window.homeEmailChart.generateLegend());
+
+            var workEmailData = generateWorkEmailDataSet(metricsOutput);
+
+            var ctx = $("#work_email_chart").get(0).getContext("2d");
+            window.workEmailChart = new Chart(ctx).Pie(workEmailData, pieChartOptions);
+            $("#work_email_chart").after(window.workEmailChart.generateLegend());
         });
 
 

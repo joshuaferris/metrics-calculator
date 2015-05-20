@@ -213,3 +213,87 @@ function generateHomePhoneDataSet(metricsObject) {
     });     
     return dataSet
 }
+
+function generateCellPhoneDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputCellPhoneCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without cell phone information"
+                },
+                {
+                    value: metricsObject.raw.inputCellPhoneCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with cell phone information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateSmsDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputSmsCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without SMS authorization"
+                },
+                {
+                    value: metricsObject.raw.inputSmsCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with SMS authorization"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateHomeEmailDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomeEmailCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without personal email information"
+                },
+                {
+                    value: metricsObject.raw.inputHomeEmailCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with personal email information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateWorkEmailDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputWorkEmailCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without work email information"
+                },
+                {
+                    value: metricsObject.raw.inputWorkEmailCount,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with work email information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
