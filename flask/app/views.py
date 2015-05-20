@@ -16,6 +16,25 @@ def get_local_names(url):
     local_names = sorted(local_names)
     return local_names
 
+def count_filled_out(form):
+    count = 0
+    for item in form.data:
+        if form.data[item] is not None:
+            count = count + 1
+    return count
+
+def percent_filled_out(form):
+    count = count_filled_out(form) * 1.0
+    return (count / len(form.data)) * 100
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    form = UnionMetricsForm()
+    report_types = models.ReportType.query.all()
+    form.report_type.choices = [(rt.id, rt.name) for rt in report_types]
+
+    return render_template('test.html', form=form, count=len(form.data))
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = UnionMetricsForm()

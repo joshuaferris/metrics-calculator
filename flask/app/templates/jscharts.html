@@ -1,0 +1,62 @@
+
+<!-- Report display options -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="static/js/Chart.js"></script>
+<script src="static/js/Chart.Doughnut.js"></script>
+<script src="static/js/chartDataSetGeneration.js"></script>
+<script>
+    $(document).ready(function () {
+        var myMetrics = seiuMetrics;
+            seiuMetrics.setValues(
+                '{{ data.email.data }}',
+                '{{ data.local.data }}',
+                '{{ data.report_name.data }}',
+                '{{ report_type_name }}',
+                '{{ data.as_of_date.data }}',
+                {{ data.obligation_count.data }},
+                {{ data.full_dues_count.data }},
+                {{ data.partial_dues_count.data }},
+                {{ data.member_card_count.data }},
+                {{ data.political_card_count.data }},
+                {{ data.political_contributor_count.data }},
+                {{ data.mailing_count.data if data.mailing_count.data else 0 }}, // optional from here down
+                {{ data.home_email_count.data if data.home_email_count.data else 0 }},
+                {{ data.work_email_count.data if data.work_email_count.data else 0 }},
+                {{ data.sms_count.data if data.sms_count.data else 0 }},
+                {{ data.home_phone_count.data if data.home_phone_count.data else 0 }},
+                {{ data.cell_phone_count.data if data.cell_phone_count.data else 0 }}
+            );
+            seiuMetrics.calculateMetrics();
+            var reportMetrics = seiuMetrics.getMetricsOutput();
+      {% raw %}
+var chartOptions = { legendTemplate: "<div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Legend</h3></div><ul class=\"<%=name.toLowerCase()%>-legend list-group\"><% for (var i=0; i<segments.length; i++){%><li class=\"list-group-item\" style=\"background-color:<%=segments[i].fillColor%>\"><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul></div>" }
+        {% endraw %}
+        console.log(reportMetrics);
+      var universeData = generateUniverseChartDataSet(reportMetrics);
+      console.log(universeData);
+      //var ctx = $("#universe1_chart").get(0).getContext("2d");
+      //window.universeChart = new Chart(ctx).Bar(universeData, chartOptions);
+      //$("#universe_chart").after(window.universeChart.generateLegend());
+
+        var duesData = generateDuesChartDataSet(reportMetrics);
+
+        var ctx = $("#dues_chart").get(0).getContext("2d");
+        var duesChart = new Chart(ctx).Pie(duesData, chartOptions);
+        $("#dues_legend").html(duesChart.generateLegend());    
+
+        var political_contributorData = generatePoliticalChartDataSet(reportMetrics);
+
+        var ctx = $("#political_chart").get(0).getContext("2d");
+        new Chart(ctx).Pie(political_contributorData, chartOptions);
+         contactData = generateContactChartDataSet(reportMetrics);
+
+        //var ctx = $("#contact_chart").get(0).getContext("2d");
+        //window.contactChart = new Chart(ctx).Bar(contactData, chartOptions);
+        //$("#contact_chart").after(window.contactChart.generateLegend());
+    });
+
+
+
+    </script>
+
+</script>

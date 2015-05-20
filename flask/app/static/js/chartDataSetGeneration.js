@@ -29,7 +29,8 @@ function generateUniverseChartDataSet(metricsObject) {
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
+    // Calculate how many cards signed vs how many full dues received
+    var unpayingCardSigners = metricsObject.raw.inputMemberCardCount - inputFullDuesCount;
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
                 {
