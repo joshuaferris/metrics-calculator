@@ -47,14 +47,16 @@ def index():
         form.local.choices.append((local_names.index(name), name))
 
     if form.validate_on_submit():
+        # turn local name into text
+        local_name = local_names[form.local.data]
         # check for valid user already
         user = models.User.query.filter_by(email=form.email.data).first()
         if user is None:
-            user = models.User(email=form.email.data,local_name=form.local.data)
+            user = models.User(email=form.email.data,local_name=local_name)
             db.session.add(user)
             db.session.commit()
         user = models.User.query.filter_by(email=form.email.data).first()
-
+        
         report_details = models.ReportDetails(
             user_id = user.id,
             report_type_id = form.report_type.data,
@@ -78,7 +80,7 @@ def index():
 
         report = models.ReportType.query.filter_by(id=form.report_type.data).first()
         report_type_name = report.name
-        return render_template('report.html', data=form,report_type_name=report_type_name)
+        return render_template('report.html', local_name=local_name,data=form,report_type_name=report_type_name)
 
     return render_template('index.html', form=form)
 
