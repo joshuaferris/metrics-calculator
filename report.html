@@ -24,6 +24,12 @@
             margin-right: .5em;
         }
 
+        ul[class$="legend"] em{
+            display: inline-block;
+            font-weight: bold;
+            width: 5em;
+        }
+
         #visualizations{
             width: 960px;
             margin: 0 auto;
@@ -150,13 +156,13 @@
         var barChartOptions = {
             toolTipFontSize: 10,
             toolTipTemplate: "<%if (label){%><%=label%>: <%}%><%=value %>",
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>" 
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><em><%=datasets[i].bars[0].value%></em><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>" 
         }
 
         var pieChartOptions = {
             toolTipFontSize: 10,
             toolTipTemplate: "<%if (label){%><%=label%>: <%}%><%=value %>",
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><span style=\"background-color:<%=dataSet[i].color%>\"></span><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><span style=\"background-color:<%=dataSet[i].color%>\"></span><em><%=dataSet[i].value%></em><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
         }                
 
         $(document).ready(function () {
