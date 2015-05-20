@@ -27,6 +27,9 @@ function generateUniverseChartDataSet(metricsObject) {
                     label: "Number of membership card signers"
                 }, ]
     };
+    dataSet.datasets.sort(function(a,b){
+        return b.data[0] - a.data[0]
+    });
     return dataSet
 }
 
@@ -57,8 +60,11 @@ function generateDuesChartDataSet(metricsObject) {
             color: "#949FB1",
             highlight: "#A8B3C5",
             label: "Number of membership card signers you are not receiving dues from"
-        },
+        }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });    
     return dataSet
 }
 
@@ -85,6 +91,9 @@ function generatePoliticalChartDataSet(metricsObject) {
                     label: "Members who have committed to contributing political funds, but not receiving payment for."
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });      
     return dataSet
 }
 
@@ -129,6 +138,9 @@ function generateContactChartDataSet(metricsObject) {
                     label: "Members with known cell phone numbers"
                 }, ]
     };
+    dataSet.datasets.sort(function(a,b){
+        return b.data[0] - a.data[0]
+    });    
     return dataSet
 }
 
@@ -147,6 +159,9 @@ function generateAddressDataSet(metricsObject) {
                     label: "Members with address information"
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });     
     return dataSet
 }
 
@@ -165,5 +180,8 @@ function generateHomePhoneDataSet(metricsObject) {
                     label: "Members with home phone information"
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });     
     return dataSet
 }
