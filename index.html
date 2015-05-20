@@ -95,6 +95,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" id="progress-completed" role="progressbar" style="width:0%">
+                                            Completed
+                                        </div>
+                                        <div class="progress-bar progress-bar-danger" id="progress-mandatory" role="progressbar" style="width:0%">
+                                            Mandatory
+                                        </div>
+                                        <div class="progress-bar progress-bar-info" id="progress-optional" role="progressbar" style="width:0%">
+                                            Optional
+                                        </div>
+                                    </div>     
+                                                               
                                     <div class="tab-content">
                                         
                                         <div class="tab-pane" id="tab1">
@@ -104,7 +117,7 @@
                                                     <label for="email">Email Address</label>
                                                 </div>
                                                 <div class="col-md-4 ">
-                                                    <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Email Address"/>
+                                                    <input type="text" id="email" name="email" class="form-control input-lg" placeholder="Email Address" data-weight="1"/>
                                                 </div>
                                             </div>
 
@@ -113,7 +126,7 @@
                                                     <label for="local">Local</label>
                                                 </div>  
                                                 <div class="col-md-4">
-                                                    <select id="local" name="local" class="form-control input-lg">
+                                                    <select id="local" name="local" class="form-control input-lg" data-weight="1">
                                                         <option value="SEIU Local 1">SEIU Local 1</option>
                                                         <option value="SEIU Local 2.on">SEIU Local 2.on</option>
                                                         <option value="SEIU Local 32BJ">SEIU Local 32BJ</option>
@@ -127,7 +140,7 @@
                                                         <label for="report_type">Report Type</label>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <select id="report_type" name="report_type" class="col-md-4 form-control input-lg">
+                                                        <select id="report_type" name="report_type" class="col-md-4 form-control input-lg" data-weight="1">
                                                             <option value="opt1">Type 1</option>
                                                             <option value="opt2">Type 2</option>
                                                             <option value="opt3">Type 3</option>
@@ -140,7 +153,7 @@
                                                     <label for="report_name">Report Name</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" id="report_name" name="report_name" class="form-control input-lg" placeholder="Report Name"/>
+                                                    <input type="text" id="report_name" name="report_name" class="form-control input-lg" placeholder="Report Name" data-weight="1"/>
                                                 </div>
                                             </div>
 
@@ -149,7 +162,7 @@
                                                     <label for="date">As of Date</label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" id="date" name="date" class="form-control input-lg" placeholder="mm/dd/yyyy"/>
+                                                    <input type="text" id="date" name="date" class="form-control input-lg" placeholder="mm/dd/yyyy" data-weight="1"/>
                                                 </div>
                                             </div>                                                                
                                         </div>
@@ -160,7 +173,7 @@
                                                     <label for="obligation_count">Number of members you are obligated to represent</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="obligation_count" name="obligation_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-zero-valid="false"/>
+                                                    <input type="number" id="obligation_count" name="obligation_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-zero-valid="false" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -169,7 +182,7 @@
                                                     <label for="full_dues_count">Number of members from whom you recieve full dues</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="full_dues_count" name="full_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                    <input type="number" id="full_dues_count" name="full_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -178,7 +191,7 @@
                                                     <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="partial_dues_count" name="partial_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                    <input type="number" id="partial_dues_count" name="partial_dues_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -187,7 +200,7 @@
                                                     <label for="member_card_count">Number of members who have signed membership cards</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="member_card_count" name="member_card_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                    <input type="number" id="member_card_count" name="member_card_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -200,7 +213,7 @@
                                                     <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="political_card_count" name="political_card_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                    <input type="number" id="political_card_count" name="political_card_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -209,7 +222,7 @@
                                                     <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="political_contributor_count" name="political_contributor_count" class="form-control input-lg" data-validation-type="mandatory_integer"/>
+                                                    <input type="number" id="political_contributor_count" name="political_contributor_count" class="form-control input-lg" data-validation-type="mandatory_integer" data-weight="10"/>
                                                 </div>
                                             </div>
 
@@ -220,7 +233,7 @@
                                                     <label for="mailing_count">Number of members with complete mailing addresses</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="mailing_count" name="mailing_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="mailing_count" name="mailing_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
 
@@ -229,7 +242,7 @@
                                                     <label for="home_email_count">Number of members with home email addresses</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="home_email_ount" name="home_email_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="home_email_ount" name="home_email_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
 
@@ -238,7 +251,7 @@
                                                     <label for="work_email_count">Number of members with work email addresses</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="work_email_count" name="work_email_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="work_email_count" name="work_email_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
 
@@ -247,7 +260,7 @@
                                                     <label for="sms_count">Number of members who have authorized SMS</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="sms_count" name="sms_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="sms_count" name="sms_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
 
@@ -256,7 +269,7 @@
                                                     <label for="home_phone_count">Number of members who have provided a home phone number</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="home_phone_count" name="home_phone_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="home_phone_count" name="home_phone_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
 
@@ -265,7 +278,7 @@
                                                     <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="number" id="cell_phone_count" name="cell_phone_count" class="form-control input-lg" data-validation-type="optional_integer"/>
+                                                    <input type="number" id="cell_phone_count" name="cell_phone_count" class="form-control input-lg" data-validation-type="optional_integer" data-weight="5"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,19 +306,22 @@
     <script src="js/jquery.bootstrap.wizard.min.js"></script>
     <script src="formValidation.js"></script>
     <script src="js/metrics.js"></script>
+    <script src="js/progressBarEvents.js"></script>
     <script src="js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#local").select2();
 
+            initializeProgressBar();
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
-                validateIntegerInput(eventObject.target.value, eventObject)
+                validateIntegerInput(eventObject.target.value, eventObject);
             });
             $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
-                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+                validateOptionalIntegerInput(eventObject.target.value, eventObject);
             });
             $('#date').on("change", function (eventObject) {
-                validateDateInput(eventObject.target.value, eventObject)
+                validateDateInput(eventObject.target.value, eventObject);
             });
             $('#rootwizard').bootstrapWizard({
                 onTabShow: function (tab, navigation, index) {

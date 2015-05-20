@@ -1,77 +1,79 @@
 function generateUniverseChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Count"],
+        datasets: [
                 {
-                    data: [metricsObject.inputObligationCount],
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    data: [metricsObject.raw.inputObligationCount],
+                    fillColor: "#F7464A",
+                    highlightFill: "#FF5A5E",
                     label: "Number of members you are obligated to represent"
                 },
                 {
-                    data: [metricsObject.inputFullDuesCount],
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    data: [metricsObject.raw.inputFullDuesCount],
+                    fillColor: "#46BFBD",
+                    highlightFill: "#5AD3D1",
                     label: "Number of full dues paying members"
                 },
                 {
-                    data: [metricsObject.inputPartialDuesCount],
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
+                    data: [metricsObject.raw.inputPartialDuesCount],
+                    fillColor: "#FDB45C",
+                    highlightFill: "#FFC870",
                     label: "Number of partial dues paying members"
                 },
                 {
-                    data: [metricsObject.inputMemberCardCount],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    data: [metricsObject.raw.inputMemberCardCount],
+                    fillColor: "#949FB1",
+                    highlightFill: "#A8B3C5",
                     label: "Number of membership card signers"
-                },
-    ];
+                }, ]
+    };
     return dataSet
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
-                {
-                    value: metricsObject.inputFullDuesCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Full Dues Paying Members"
-                },
-                {
-                    value: metricsObject.inputPartialDuesCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Partial Dues Paying Members"
-                },
-                {
-                    value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Not Paying Dues"
-                },
-                {
-                    value: unpayingCardSigners,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Number of membership card signers you are not receiving dues from"
-                },
+        {
+            value: metricsObject.raw.inputFullDuesCount,
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Full Dues Paying Members"
+        },
+        {
+            value: metricsObject.raw.inputPartialDuesCount,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Partial Dues Paying Members"
+        },
+        {
+            value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Not Paying Dues"
+        },
+        {
+            value: unpayingCardSigners,
+            color: "#949FB1",
+            highlight: "#A8B3C5",
+            label: "Number of membership card signers you are not receiving dues from"
+        },
     ];
     return dataSet
 }
 
 function generatePoliticalChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputPoliticalContributorCount,
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputPoliticalContributorCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members who are not contributing to political funds"
                 },
                 {
-                    value: metricsObject.inputPoliticalContributorCount,
+                    value: metricsObject.raw.inputPoliticalContributorCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members who contribute to political funds"
@@ -87,9 +89,11 @@ function generatePoliticalChartDataSet(metricsObject) {
 }
 
 function generateContactChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Percent"],
+        datasets: [
                 {
-                    data: [metricsOutput.contact.contactByMailPercentaget],
+                    data: [metricsOutput.contact.contactByMailPercentage],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members with known mailing addresses"
@@ -123,21 +127,21 @@ function generateContactChartDataSet(metricsObject) {
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
-                },
-    ];
+                }, ]
+    };
     return dataSet
 }
 
 function generateAddressDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputMailingCount,
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputMailingCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members without address information"
                 },
                 {
-                    value: metricsObject.inputMailingCount,
+                    value: metricsObject.raw.inputMailingCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with address information"
@@ -149,13 +153,13 @@ function generateAddressDataSet(metricsObject) {
 function generateHomePhoneDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputHomePhoneCount,
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomePhoneCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members without home phone information"
                 },
                 {
-                    value: metricsObject.inputHomePhoneCount,
+                    value: metricsObject.raw.inputHomePhoneCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with home phone information"
