@@ -30,6 +30,19 @@
             width: 5em;
         }
 
+        div.panel-inner-container{clear: both;}
+
+        div.panel-inner{
+            width: 300px;
+            margin: 1em .5em;
+            float: left;
+        }
+
+        hr.clearfix{
+            visibility: hidden;
+            clear: both;
+        }
+
         #visualizations{
             width: 960px;
             margin: 0 auto;
@@ -134,31 +147,90 @@
 
         <hr>
 
-        <table>
-            <tr>
-                <td id="address_holder">
+        <div class="panel-inner-container">
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mailing Addresses</h3>
+                </div>
+                <div id="address_holder">
                     <canvas id="address_chart" width="150" height="150" />
-                </td>
-                <td id="home_phone_holder">
+                </div>
+            </div>
+            
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Home Phones</h3>
+                </div>
+                <div id="home_phone_holder">
                     <canvas id="home_phone_chart" width="150" height="150" />
-                </td>
-                <td id="cell_phone_holder">
+                </div>
+            </div>  
+            
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cell Phones</h3>
+                </div>
+                <div id="cell_phone_holder">
                     <canvas id="cell_phone_chart" width="150" height="150" />
-                </td>
-            </tr>
-            <tr>
-                <td id="sms_holder">
+                </div>
+            </div>
+
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">SMS</h3>
+                </div>
+                <div id="sms_holder">
                     <canvas id="sms_chart" width="150" height="150" />
-                </td>
-                <td id="home_email_holder">
+                </div>
+            </div>
+
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Home Email</h3>
+                </div>
+                <div id="home_email_holder">
                     <canvas id="home_email_chart" width="150" height="150" />
-                </td>
-                <td id="work_email_holder">
+                </div>
+            </div>
+
+            <div class="panel panel-default panel-inner">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Work Email</h3>
+                </div>
+                <div id="work_email_holder">
                     <canvas id="work_email_chart" width="150" height="150" />
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>                        
+            
+            <hr class="clearfix">
+        </div>
+
     </div>
+<!--         <table>
+    <tr>
+        <td id="address_holder">
+            <canvas id="address_chart" width="150" height="150" />
+        </td>
+        <td id="home_phone_holder">
+            <canvas id="home_phone_chart" width="150" height="150" />
+        </td>
+        <td id="cell_phone_holder">
+            <canvas id="cell_phone_chart" width="150" height="150" />
+        </td>
+    </tr>
+    <tr>
+        <td id="sms_holder">
+            <canvas id="sms_chart" width="150" height="150" />
+        </td>
+        <td id="home_email_holder">
+            <canvas id="home_email_chart" width="150" height="150" />
+        </td>
+        <td id="work_email_holder">
+            <canvas id="work_email_chart" width="150" height="150" />
+        </td>
+    </tr>
+</table> -->
+    
 
     <!--
     <div class="panel panel-default">
