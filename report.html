@@ -17,12 +17,17 @@
             list-style: none;
         }
 
-        ul[class$="legend"] svg{
+/*         ul[class$="legend"] svg{
+    display: inline-block;
+    margin-right: .5em;
+} */
+
+        div.svg-holder{
+            width: 14px; 
+            height: 14px;
             display: inline-block;
             margin-right: .5em;
         }
-
-        div.svg-holder{width: 14px; height: 14px;}
 
         ul[class$="legend"] em{
             display: inline-block;
@@ -211,42 +216,6 @@
         </div>
 
     </div>
-<!--         <table>
-    <tr>
-        <td id="address_holder">
-            <canvas id="address_chart" width="150" height="150" />
-        </td>
-        <td id="home_phone_holder">
-            <canvas id="home_phone_chart" width="150" height="150" />
-        </td>
-        <td id="cell_phone_holder">
-            <canvas id="cell_phone_chart" width="150" height="150" />
-        </td>
-    </tr>
-    <tr>
-        <td id="sms_holder">
-            <canvas id="sms_chart" width="150" height="150" />
-        </td>
-        <td id="home_email_holder">
-            <canvas id="home_email_chart" width="150" height="150" />
-        </td>
-        <td id="work_email_holder">
-            <canvas id="work_email_chart" width="150" height="150" />
-        </td>
-    </tr>
-</table> -->
-    
-
-    <!--
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title">Addresses, Overall</h2>
-        </div>
-        <div id="address_holder">
-            <canvas id="address_chart" width="300" height="300" />
-        </div>
-    </div>
-    -->
 
     <div id="chartjs-tooltip"></div>
  </div>
@@ -268,7 +237,7 @@
         var pieChartOptions = {
             toolTipFontSize: 10,
             toolTipTemplate: "<%if (label){%><%=label%>: <%}%><%=value %>",
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><svg width=\"14\" height=\"14\"><rect width=\"14\" height=\"14\" style=\"fill:<%=dataSet[i].color%>\"></svg><em><%=dataSet[i].value.toLocaleString()%></em><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><div class=\"svg-holder\"><svg width=\"14\" height=\"14\"><rect width=\"14\" height=\"14\" style=\"fill:<%=dataSet[i].color%>\"></svg></div><em><%=dataSet[i].value.toLocaleString()%></em><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
         }                
 
         $(document).ready(function () {
