@@ -197,13 +197,13 @@ function generateHomePhoneDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomePhoneCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members without home phone information"
                 },
                 {
                     value: metricsObject.raw.inputHomePhoneCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with home phone information"
                 }
@@ -218,13 +218,13 @@ function generateCellPhoneDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputCellPhoneCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members without cell phone information"
                 },
                 {
                     value: metricsObject.raw.inputCellPhoneCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with cell phone information"
                 }
@@ -239,13 +239,13 @@ function generateSmsDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputSmsCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members without SMS authorization"
                 },
                 {
                     value: metricsObject.raw.inputSmsCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with SMS authorization"
                 }
@@ -260,13 +260,13 @@ function generateHomeEmailDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomeEmailCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members without personal email information"
                 },
                 {
                     value: metricsObject.raw.inputHomeEmailCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with personal email information"
                 }
@@ -281,13 +281,13 @@ function generateWorkEmailDataSet(metricsObject) {
     dataSet = [
                 {
                     value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputWorkEmailCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members without work email information"
                 },
                 {
                     value: metricsObject.raw.inputWorkEmailCount,
-                    fillColor: getNextSegmentColor(),
+                    color: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with work email information"
                 }
