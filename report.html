@@ -17,12 +17,12 @@
             list-style: none;
         }
 
-        ul[class$="legend"] span{
+        ul[class$="legend"] svg{
             display: inline-block;
-            width: 25px;
-            height: 1em;
             margin-right: .5em;
         }
+
+        div.svg-holder{width: 14px; height: 14px;}
 
         ul[class$="legend"] em{
             display: inline-block;
@@ -262,13 +262,13 @@
         var barChartOptions = {
             toolTipFontSize: 10,
             toolTipTemplate: "<%if (label){%><%=label%>: <%}%><%=value %>",
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><em><%=datasets[i].bars[0].value.toLocaleString()%><%if(datasets[i].bars[0].label == 'Percent'){%>&#37<%}%></em><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>" 
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><div class=\"svg-holder\"><svg width=\"14\" height=\"14\"><rect width=\"14\" height=\"14\" style=\"fill:<%=datasets[i].fillColor%>\"></svg></div><em><%=datasets[i].bars[0].value.toLocaleString()%><%if(datasets[i].bars[0].label == 'Percent'){%>&#37<%}%></em><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>" 
         }
 
         var pieChartOptions = {
             toolTipFontSize: 10,
             toolTipTemplate: "<%if (label){%><%=label%>: <%}%><%=value %>",
-            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><span style=\"background-color:<%=dataSet[i].color%>\"></span><em><%=dataSet[i].value.toLocaleString()%></em><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
+            legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<dataSet.length; i++){%><li><svg width=\"14\" height=\"14\"><rect width=\"14\" height=\"14\" style=\"fill:<%=dataSet[i].color%>\"></svg><em><%=dataSet[i].value.toLocaleString()%></em><%if(dataSet[i].label){%><%=dataSet[i].label%><%}%></li><%}%></ul>"
         }                
 
         $(document).ready(function () {
