@@ -85,8 +85,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="static/js/jquery.bootstrap.wizard.min.js"></script>
     <script src="static/js/formValidation.js"></script>
+    <script src="static/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#local").select2();
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
                 validateIntegerInput(eventObject.target.value, eventObject)
             });

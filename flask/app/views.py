@@ -1,7 +1,20 @@
 from flask import render_template
 from app import app, db, models
 from .forms import UnionMetricsForm
-import datetime, time
+import datetime, json, time, urllib2
+
+def get_local_names(url):
+    html = urllib2.urlopen(url)
+    response = html.read()
+    jsonified = json.loads(response)
+
+    local_names = []
+    for item in jsonified['locals']['local']:
+        local_names.append(item['name'])
+
+    local_names = list(set(local_names))
+    local_names = sorted(local_names)
+    return local_names
 
 def count_filled_out(form):
     count = 0
@@ -27,15 +40,23 @@ def index():
     form = UnionMetricsForm()
     report_types = models.ReportType.query.all()
     form.report_type.choices = [(rt.id, rt.name) for rt in report_types]
+    
+    local_names = get_local_names('http://crmdata.seiu.org.s3.amazonaws.com/localscrmdata.json')
+    form.local.choices = []
+    for name in local_names:
+        form.local.choices.append((local_names.index(name), name))
+
     if form.validate_on_submit():
+        # turn local name into text
+        local_name = local_names[form.local.data]
         # check for valid user already
         user = models.User.query.filter_by(email=form.email.data).first()
         if user is None:
-            user = models.User(email=form.email.data,local_name=form.local.data)
+            user = models.User(email=form.email.data,local_name=local_name)
             db.session.add(user)
             db.session.commit()
         user = models.User.query.filter_by(email=form.email.data).first()
-
+        
         report_details = models.ReportDetails(
             user_id = user.id,
             report_type_id = form.report_type.data,
@@ -59,7 +80,7 @@ def index():
 
         report = models.ReportType.query.filter_by(id=form.report_type.data).first()
         report_type_name = report.name
-        return render_template('report.html', data=form,report_type_name=report_type_name,count_filled_out=count_filled_out(form), percent_filled_out=percent_filled_out(form))
+        return render_template('report.html', local_name=local_name,data=form,report_type_name=report_type_name)
 
     return render_template('index.html', form=form)
 
