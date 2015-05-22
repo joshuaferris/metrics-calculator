@@ -124,43 +124,43 @@ function generateContactChartDataSet(metricsObject) {
         labels: ["Percent"],
         datasets: [
                 {
-                    data: [metricsOutput.contact.contactByMailPercentage],
-                    value: metricsOutput.contact.contactByMailPercentage,
+                    data: [metricsObject.contact.contactByMailPercentage],
+                    value: metricsObject.contact.contactByMailPercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with known mailing addresses"
                 },
                 {
-                    data: [metricsOutput.contact.contactByHomeEmailPercentage],
-                    value: metricsOutput.contact.contactByHomeEmailPercentage,
+                    data: [metricsObject.contact.contactByHomeEmailPercentage],
+                    value: metricsObject.contact.contactByHomeEmailPercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with known home email addresses"
                 },
                 {
-                    data: [metricsOutput.contact.contactByWorkEmailPercentage],
-                    value: metricsOutput.contact.contactByWorkEmailPercentage,
+                    data: [metricsObject.contact.contactByWorkEmailPercentage],
+                    value: metricsObject.contact.contactByWorkEmailPercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with known work email addresses"
                 },
                 {
-                    data: [metricsOutput.contact.contactBySMSPercentage],
-                    value: metricsOutput.contact.contactBySMSPercentage,
+                    data: [metricsObject.contact.contactBySMSPercentage],
+                    value: metricsObject.contact.contactBySMSPercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members who have provided SMS authorizations"
                 },
                 {
-                    data: [metricsOutput.contact.contactByHomePhonePercentage],
-                    value: metricsOutput.contact.contactByHomePhonePercentage,
+                    data: [metricsObject.contact.contactByHomePhonePercentage],
+                    value: metricsObject.contact.contactByHomePhonePercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with known home phone numbers"
                 },
                 {
-                    data: [metricsOutput.contact.contactByCellPhonePercentage],
-                    value: metricsOutput.contact.contactByCellPhonePercentage,
+                    data: [metricsObject.contact.contactByCellPhonePercentage],
+                    value: metricsObject.contact.contactByCellPhonePercentage,
                     fillColor: getNextSegmentColor(),
                     highlight: highLightFillColor,
                     label: "Members with known cell phone numbers"
