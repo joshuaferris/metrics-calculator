@@ -139,7 +139,7 @@ var seiuMetrics = (function(){
         // These are calculated values
         metricsOutput.member.duesPayersPercentage = 
             (self.inputObligationCount !== 0)
-                ? ((self.inputFullDuesCount / self.inputObligationCount) * 100).toFixed(2)
+                ? (((self.inputFullDuesCount + self.inputPartialDuesCount) / self.inputObligationCount) * 100).toFixed(2)
                 : 0;
         
         metricsOutput.member.notPayingDuesCount = self.inputObligationCount - self.inputFullDuesCount - self.inputPartialDuesCount;
@@ -151,7 +151,7 @@ var seiuMetrics = (function(){
         
         metricsOutput.member.cardSignersDuesPayersPercentage = 
             (self.inputObligationCount !== 0) 
-                ? ((self.inputFullDuesCount / self.inputMemberCardCount) * 100).toFixed(2) 
+                ? (((self.inputFullDuesCount + self.inputPartialDuesCount) / self.inputMemberCardCount) * 100).toFixed(2) 
                 : 0;
 
         metricsOutput.political.copePayersPercentage = 

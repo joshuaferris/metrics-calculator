@@ -56,7 +56,7 @@ function generateUniverseChartDataSet(metricsObject) {
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.raw.inputMemberCardCount - metricsObject.raw.inputFullDuesCount
+    var unpayingCardSigners = metricsObject.raw.inputMemberCardCount - metricsObject.raw.inputFullDuesCount - metricsObject.raw.inputPartialDuesCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
         {
