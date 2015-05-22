@@ -66,38 +66,60 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="{{url_for('index') }}">Calculator</a></li>
-                <li><a href="resources.html">Help/Resources</a></li>
+                <li{% if current_url == 'index' %} class="active"{% endif %}><a href="{{url_for('index') }}">Calculator</a></li>
+                <li{% if current_url =='resources' %} class="active"{% endif %}><a href="{{ url_for('resources') }}">Help/Resources</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>
         </nav>
 
+        <!-- Survey bar -->
+        <div id="surveyBar" class="alert alert-info alert-dismissable" role="alert">
+                Hi! Would you mind taking a <a href="https://docs.google.com/forms/d/1BaITMrBb-KYjU9C7w4P2PauueAXZ90W9v8w3q82UFY4/viewform" target="_blank" class="alert-link">quick survey</a> when you've finished?            
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- end survey bar -->
 
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="col-xs-12">
-                <div class="hero-unit">
+
+    <!-- main container -->
+    <div id="page-content-wrapper">
+        <div id="form-wrapper">
+            <div class="container-fluid">
+                <div class="row-fluid">                         
                     <h1>Welcome to the SEIU Metrics Calculator</h1>
                 </div>
-                {% block content %}{% endblock %}
+
+               {% block content %}{% endblock %}
+                    </div><!--/row-->
+                </div><!--/span-->
+            </div><!--/row-->
+            <hr>
+        </div><!--/.fluid-container-->
+    </div><!--/span-->
+
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="static/js/jquery.bootstrap.wizard.min.js"></script>
     <script src="static/js/formValidation.js"></script>
+    <script src="static/js/metrics.js"></script>
+    <script src="static/js/progressBarEvents.js"></script>
     <script src="static/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#local").select2();
 
+            initializeProgressBar();
+
             $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
-                validateIntegerInput(eventObject.target.value, eventObject)
+                validateIntegerInput(eventObject.target.value, eventObject);
             });
             $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
-                validateOptionalIntegerInput(eventObject.target.value, eventObject)
+                validateOptionalIntegerInput(eventObject.target.value, eventObject);
             });
             $('#date').on("change", function (eventObject) {
-                validateDateInput(eventObject.target.value, eventObject)
+                validateDateInput(eventObject.target.value, eventObject);
             });
             $('#rootwizard').bootstrapWizard({
                 onTabShow: function (tab, navigation, index) {

@@ -1,170 +1,268 @@
 
-	{{ form.hidden_tag() }}
+    {{ form.hidden_tag() }}
+
+<!-- Progress bar here -->
+<div class="progress">
+    <div class="progress-bar progress-bar-success" id="progress-completed" role="progressbar" style="width:0%">
+        Completed
+    </div>
+    <div class="progress-bar progress-bar-danger" id="progress-mandatory" role="progressbar" style="width:0%">
+        Mandatory
+    </div>
+    <div class="progress-bar progress-bar-info" id="progress-optional" role="progressbar" style="width:0%">
+        Optional
+    </div>
+</div>  
+<!-- end progress bar -->
+
+
   <div class="tab-content">
       <div class="tab-pane" id="tab1">
-      	<div class="row">
-          <div class="input-group{% if form.email.errors %} has-error{% endif %}">
-              <label for="email">Email Address</label>
-              {{ form.email(class='form-control', placeholder='Email Address') }}
-              {% for error in form.email.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-          </div>
+
+        <!-- email address -->
+        <div class="row{%if form.email.errors %} has-error{% endif %}">
+            <div class="col-md-4">
+                <label for="email">Email Address</label>
+            </div>
+            <div class="col-md-4">
+                {{ form.email(**{'class': 'form-control input-lg', 'placeholder': 'Email Address', 'data-weight': '1'}) }}
+            </div>
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">{{ error}}</div>
+            {% endfor %}
         </div>
-        <div class="row">
-          <div class="input-group{% if form.local.errors %} has-error{% endif %}">
-              <label for="local">Local</label>
-              {{ form.local(class='form-control', placeholder='Local') }}
-              {% for error in form.local.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-          </div>
+
+        <!-- local name -->
+        <div class="row{% if form.local.errors %} has-error{% endif %}">
+            <div class="col-md-4">
+                <label for="local">Local</label>
+            </div>
+            <div class="col-md-4">
+                {{ form.local(**{'class':'form-control input-lg', 'data-weight': '1'}) }}
+            </div>
+            {% for error in form.local.errors %}
+            <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
         </div>
-        <div class="row">
-          <div class="input-group{% if form.report_type.errors %} has-error{% endif %}">
-              <label for="report_type">Report Type</label>
-              {{ form.report_type(class='form-control') }}
-              {% for error in form.report_type.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-          </div>
+
+        <!-- report type -->
+        <div class="row{% if form.report_type.errors %} has-error{% endif %}">
+            <div class="col-md-4">  
+                <label for="report_type">Report Type</label>
+            </div>
+            <div class="col-md-4">  
+                {{ form.report_type(**{'class':'form-control input-lg', 'data-weight': '1'}) }}
+            </div>
+            {% for error in form.report_type.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
         </div>
-        <div class="row">
-          <div class="input-group{% if form.report_name.errors %} has-error{% endif %}">
-              <label for="report_name">Report Name</label>
-              {{ form.report_name(class='form-control',placeholder='Report Name')}}
-              {% for error in form.report_name.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-          </div>
+
+        <!-- report name -->
+        <div class="row{% if form.report_name.errors %} has-error{% endif %}">
+            <div class="col-md-4">
+                <label for="report_name">Report Name</label>
+            </div>
+            <div class="col-md-4">
+                {{ form.report_name(**{'class':'form-control input-lg', 'placeholder': 'Report Name', 'data-weight': '1'}) }}
+            </div>            
+            {% for error in form.report_name.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
         </div>
-        <div class="row">
-          <div class="input-group{% if form.as_of_date.errors %} has-error{% endif %}">
-              <label for="date">As of Date</label>
-              {{ form.as_of_date(class='form-control', placeholder='mm/dd/yyy') }}
-              {% for error in form.as_of_date.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}					</div>
-			  </div>
-      </div>
-      <div class="tab-pane row" id="tab2">
-      	<div class="row">
-          <div class="input-group{% if form.obligation_count.errors %} has-error{% endif %}">
-              <label for="obligation_count">Number of members you are obligated to represent</label>
-              {{ form.obligation_count(class='form-control') }}
-              {% for error in form.obligation_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}          </div>
+
+        <!-- as of date -->
+        <div class="row{% if form.as_of_date.errors %} has-error{% endif %}">
+            <div class="col-md-4">  
+                <label for="date">As of Date</label>
+            </div>
+            <div class="col-md-4">  
+                {{ form.as_of_date(**{'class':'form-control input-lg', 'placeholder': 'mm/dd/yyyy','data-weight': '1'}) }}
+            </div>            
+            {% for error in form.as_of_date.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>
+    </div>
+<!-- page 2 -->
+
+    <div class="tab-pane" id="tab2">
+        
+        <!-- obligation count -->
+        <div class="row{% if form.obligation_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+                <label for="obligation_count">Number of members you are obligated to represent</label>
+            </div>
+            <div class="col-md-3">  
+                {{ form.obligation_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-zero-valid': 'false', 'data-weight': '10'}) }}
+            </div>
+            {% for error in form.obligation_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
          </div>
-         <div class="row">
-          <div class="input-group{% if form.full_dues_count.errors %} has-error{% endif %}">
-              <label for="full_dues_count">Number of members from whom you recieve full dues</label>
-              {{ form.full_dues_count(class='form-control') }}
-              {% for error in form.full_dues_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}			    </div>
-			   </div>
-			   <div class="row">
-          <div class="input-group{% if form.partial_dues_count.errors %} has-error{% endif %}">
-              <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
-              {{ form.partial_dues_count(class='form-control') }}
-               {% for error in form.partial_dues_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}       </div>
-			   </div>
-			   <div class="row">
-          <div class="input-group{% if form.member_card_count.errors %} has-error{% endif %}">
-              <label for="member_card_count">Number of members who have signed membership cards</label>
-              {{ form.member_card_count(class='form-control') }}
+         
+        <!-- full dues count -->
+        <div class="row{% if form.full_dues_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">
+                <label for="full_dues_count">Number of members from whom you recieve full dues</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.full_dues_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-weight': '10'}) }}
+            </div>
+            {% for error in form.full_dues_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+         </div>    
+
+        <!-- partial dues count -->
+        <div class="row{% if form.partial_dues_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">
+                <label for="partial_dues_count">Number of members from whom you recieve partial dues</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.partial_dues_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-weight': '10'}) }}
+            </div>
+            {% for error in form.partial_dues_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>    
+
+        <!-- member card count -->
+        <div class="row{% if form.member_card_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">
+                <label for="member_card_count">Number of members who have signed membership cards</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.member_card_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-weight': '10'}) }}
+
+            </div>
               {% for error in form.member_card_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}	      	</div>
-	        </div>
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endfor %}
+        </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="tab-pane" id="tab3">
+        
+        <!-- political card counts -->
+        <div class="row{% if form.political_card_count.errors %} has-error{% endif %}">
+            <div class="col-md-9"> 
+                <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.political_card_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-weight': '10'}) }}
+            </div>
+            {% for error in form.political_card_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>              
+
+        <!-- political contrib count -->
+        <div class="row{% if form.political_contributor_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">
+                <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.political_contributor_count(**{'class':'form-control input-lg', 'data-validation-type': 'mandatory_integer', 'data-weight': '10'}) }}
+            </div>
+              {% for error in form.political_contributor_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endfor %} 
+        </div>
+    </div>
+      
+    <!-- PAGE 4 -->
+    <div class="tab-pane" id="tab4">
+    
+        <!-- mailing count -->
+        <div class="row{% if form.mailing_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">
+                <label for="mailing_count">Number of members with complete mailing addresses</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.mailing_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
+            </div>
+            {% for error in form.mailing_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- home email count -->    
+        <div class="row{% if form.home_email_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+                <label for="home_email_count">Number of members with home email addresses</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.home_email_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
+            </div> 
+            {% for error in form.home_email_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+
+        <div class="row{% if form.work_email_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+              <label for="work_email_count">Number of members with work email addresses</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.work_email_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
+            </div> 
+              {% for error in form.work_email_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endfor %}
+         </div>
+
+
+        <div class="row{% if form.sms_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+              <label for="sms_count">Number of members who have authorized SMS</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.sms_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
+            </div> 
+               {% for error in form.sms_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endfor %}
+         </div>
+
+
+        <div class="row{% if form.home_phone_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+              <label for="home_phone_count">Number of members who have provided a home phone number</label>
+            </div>
+            <div class="col-md-3">
+                {{ form.home_phone_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
+            </div> 
+              {% for error in form.home_phone_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+              {% endfor %} 
+         </div>
+
+
+        <div class="row{% if form.cell_phone_count.errors %} has-error{% endif %}">
+            <div class="col-md-9">        
+              <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
+            </div>
+            <div class="col-md-3">
+              {{ form.cell_phone_count(class='form-control') }}
+            </div>            
+            {% for error in form.cell_phone_count.errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+         </div>
       </div>
 
-      <div class="tab-pane" id="tab3">
-			   <div class="row">
-          <div class="input-group{% if form.political_card_count.errors %} has-error{% endif %}">
-              <label for="political_card_count">Number of members who have agreed to contribute to political funds</label>
-              {{ form.political_card_count(class='form-control') }}
-               {% for error in form.political_card_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}         </div>
-        </div>
-		   	<div class="row">
-          <div class="input-group{% if form.political_contributor_count.errors %} has-error{% endif %}">
-              <label for="political_contributor_count">Number of members from whom you regularly receive political contributions</label>
-              {{ form.political_contributor_count(class='form-control') }}
-              {% for error in form.political_contributor_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="tab4">
-      	<div class="row">
-          <div class="input-group{% if form.mailing_count.errors %} has-error{% endif %}">
-              <label for="mailing_count">Number of members with complete mailing addresses</label>
-              {{ form.mailing_count(class='form-control') }}
-              {% for error in form.mailing_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}          </div>
-         </div>
-         <div class="row">
-          <div class="input-group{% if form.home_email_count.errors %} has-error{% endif %}">
-              <label for="home_email_count">Number of members with home email addresses</label>
-              {{ form.home_email_count(class='form-control') }}
-              {% for error in form.home_email_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-            </div>
-        </div>
-        <div class="row">
-          <div class="input-group{% if form.work_email_count.errors %} has-error{% endif %}">
-              <label for="work_email_count">Number of members with work email addresses</label>
-              {{ form.work_email_count(class='form-control') }}
-              {% for error in form.work_email_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-          </div>
-         </div>
-        <div class="row">
-          <div class="input-group{% if form.sms_count.errors %} has-error{% endif %}">
-              <label for="sms_count">Number of members who have authorized SMS</label>
-              {{ form.sms_count(class='form-control') }}
-               {% for error in form.sms_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}         </div>
-         </div>
-        <div class="row">
-          <div class="input-group{% if form.home_phone_count.errors %} has-error{% endif %}">
-              <label for="home_phone_count">Number of members who have provided a home phone number</label>
-              {{ form.home_phone_count(class='form-control') }}
-              {% for error in form.home_phone_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}          </div>
-         </div>
-        <div class="row">
-          <div class="input-group{% if form.cell_phone_count.errors %} has-error{% endif %}">
-              <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
-              {{ form.cell_phone_count(class='form-control') }}
-               {% for error in form.cell_phone_count.errors %}
-              	<hr /><div class="alert alert-danger" role="alert">{{ error }}</div>
-              {% endfor %}
-            </div>
-         </div>
-      </div>
- 			<ul class="pager wizard">
+    <ul class="pager wizard">
         <li class="previous first" style="display:none;"><a href="javascript:;">First</a></li>
         <li class="previous"><a href="javascript:;">Previous</a></li>
         <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
         <li class="next"><a href="javascript:;">Next</a></li>
     </ul>
 </div>
-</div>
-</div><!--/span-->
 
-<div class="span11">
-    <button type="submit" class="btn btn-default" id="btnSubmit">Generate Report</button>
+<div>
+    <button type="submit" class="btn btn-primary" id="btnSubmit">Generate Report</button>
 <div>
 </form>
-</div>

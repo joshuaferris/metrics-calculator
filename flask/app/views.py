@@ -82,11 +82,11 @@ def index():
         report_type_name = report.name
         return render_template('report.html', local_name=local_name,data=form,report_type_name=report_type_name)
 
-    return render_template('index.html', form=form)
+    return render_template('index.html', current_url='index', form=form)
 
 @app.route('/resources')
 def resources():
-    return render_template('resouces.html')
+    return render_template('resources.html', current_url='resources')
 
 @app.route('/show_saved')
 def show_saved():
