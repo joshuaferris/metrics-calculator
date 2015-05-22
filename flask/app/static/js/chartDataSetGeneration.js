@@ -1,165 +1,299 @@
+var getNextSegmentColor = (function(){
+    var colorSet = [
+        "#d7191c",
+        "#fdae61",
+        "#ffffbf",
+        "#abdda4",
+        "#2b83ba",
+        "#999999"
+    ];
+    var i = 0;
+    return function(){
+        if(i > (colorSet.length - 1)){i = 0;}
+        return colorSet[i++];
+    }
+})();
+
+var highLightFillColor = "#5c5c5c";
+
 function generateUniverseChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Count"],
+        datasets: [
                 {
-                    data: [metricsObject.inputObligationCount],
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    data: [metricsObject.raw.inputObligationCount],
+                    count: metricsObject.raw.inputObligationCount,
+                    fillColor: getNextSegmentColor(),
+                    highlightFill: highLightFillColor,
                     label: "Number of members you are obligated to represent"
                 },
                 {
-                    data: [metricsObject.inputFullDuesCount],
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    data: [metricsObject.raw.inputFullDuesCount],
+                    count: metricsObject.raw.inputFullDuesCount,
+                    fillColor: getNextSegmentColor(),
+                    highlightFill: highLightFillColor,
                     label: "Number of full dues paying members"
                 },
                 {
-                    data: [metricsObject.inputPartialDuesCount],
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
+                    data: [metricsObject.raw.inputPartialDuesCount],
+                    count: metricsObject.raw.inputPartialDuesCount,
+                    fillColor: getNextSegmentColor(),
+                    highlightFill: highLightFillColor,
                     label: "Number of partial dues paying members"
                 },
                 {
-                    data: [metricsObject.inputMemberCardCount],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    data: [metricsObject.raw.inputMemberCardCount],
+                    count: metricsObject.raw.inputMemberCardCount,
+                    fillColor: getNextSegmentColor(),
+                    highlightFill: highLightFillColor,
                     label: "Number of membership card signers"
-                },
-    ];
+                }, ]
+    };
+    dataSet.datasets.sort(function(a,b){
+        return b.data[0] - a.data[0]
+    });
     return dataSet
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
-                {
-                    value: metricsObject.inputFullDuesCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
-                    label: "Full Dues Paying Members"
-                },
-                {
-                    value: metricsObject.inputPartialDuesCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
-                    label: "Partial Dues Paying Members"
-                },
-                {
-                    value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
-                    label: "Not Paying Dues"
-                },
-                {
-                    value: unpayingCardSigners,
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
-                    label: "Number of membership card signers you are not receiving dues from"
-                },
+        {
+            value: metricsObject.raw.inputFullDuesCount,
+            color: getNextSegmentColor(),
+            highlight: highLightFillColor,
+            label: "Full Dues Paying Members"
+        },
+        {
+            value: metricsObject.raw.inputPartialDuesCount,
+            color: getNextSegmentColor(),
+            highlight: highLightFillColor,
+            label: "Partial Dues Paying Members"
+        },
+        {
+            value: metricsObject.member.notPayingDuesCount - unpayingCardSigners,
+            color: getNextSegmentColor(),
+            highlight: highLightFillColor,
+            label: "Not Paying Dues"
+        },
+        {
+            value: unpayingCardSigners,
+            color: getNextSegmentColor(),
+            highlight: highLightFillColor,
+            label: "Number of membership card signers you are not receiving dues from"
+        }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });    
     return dataSet
 }
 
 function generatePoliticalChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputPoliticalContributorCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputPoliticalContributorCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members who are not contributing to political funds"
                 },
                 {
-                    value: metricsObject.inputPoliticalContributorCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    value: metricsObject.raw.inputPoliticalContributorCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members who contribute to political funds"
                 },
                 {
                     value: unpayingCardSigners,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members who have committed to contributing political funds, but not receiving payment for."
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });      
     return dataSet
 }
 
 function generateContactChartDataSet(metricsObject) {
-    dataSet = [
+    dataSet = {
+        labels: ["Percent"],
+        datasets: [
                 {
-                    data: [metricsOutput.contact.contactByMailPercentaget],
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    data: [metricsOutput.contact.contactByMailPercentage],
+                    value: metricsOutput.contact.contactByMailPercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with known mailing addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactByHomeEmailPercentage],
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    value: metricsOutput.contact.contactByHomeEmailPercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with known home email addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactByWorkEmailPercentage],
-                    color: "#FDB45C",
-                    highlight: "#FFC870",
+                    value: metricsOutput.contact.contactByWorkEmailPercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with known work email addresses"
                 },
                 {
                     data: [metricsOutput.contact.contactBySMSPercentage],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    value: metricsOutput.contact.contactBySMSPercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members who have provided SMS authorizations"
                 },
                 {
                     data: [metricsOutput.contact.contactByHomePhonePercentage],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    value: metricsOutput.contact.contactByHomePhonePercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with known home phone numbers"
                 },
                 {
                     data: [metricsOutput.contact.contactByCellPhonePercentage],
-                    color: "#949FB1",
-                    highlight: "#A8B3C5",
+                    value: metricsOutput.contact.contactByCellPhonePercentage,
+                    fillColor: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with known cell phone numbers"
-                },
-    ];
+                }, ]
+    };
+    dataSet.datasets.sort(function(a,b){
+        return b.data[0] - a.data[0]
+    });    
     return dataSet
 }
 
 function generateAddressDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputMailingCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputMailingCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members without address information"
                 },
                 {
-                    value: metricsObject.inputMailingCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    value: metricsObject.raw.inputMailingCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with address information"
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });     
     return dataSet
 }
 
 function generateHomePhoneDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.inputObligationCount - metricsObject.inputHomePhoneCount,
-                    color: "#F7464A",
-                    highlight: "#FF5A5E",
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomePhoneCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members without home phone information"
                 },
                 {
-                    value: metricsObject.inputHomePhoneCount,
-                    color: "#46BFBD",
-                    highlight: "#5AD3D1",
+                    value: metricsObject.raw.inputHomePhoneCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
                     label: "Members with home phone information"
                 }
     ];
+    dataSet.sort(function(a,b){
+        return b.value - a.value
+    });     
+    return dataSet
+}
+
+function generateCellPhoneDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputCellPhoneCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without cell phone information"
+                },
+                {
+                    value: metricsObject.raw.inputCellPhoneCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with cell phone information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateSmsDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputSmsCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without SMS authorization"
+                },
+                {
+                    value: metricsObject.raw.inputSmsCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with SMS authorization"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateHomeEmailDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomeEmailCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without personal email information"
+                },
+                {
+                    value: metricsObject.raw.inputHomeEmailCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with personal email information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
+    return dataSet
+}
+
+function generateWorkEmailDataSet(metricsObject) {
+    dataSet = [
+                {
+                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputWorkEmailCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members without work email information"
+                },
+                {
+                    value: metricsObject.raw.inputWorkEmailCount,
+                    color: getNextSegmentColor(),
+                    highlight: highLightFillColor,
+                    label: "Members with work email information"
+                }
+    ];
+    dataSet.sort(function (a, b) {
+        return b.value - a.value
+    });
     return dataSet
 }
