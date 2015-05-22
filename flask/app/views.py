@@ -80,13 +80,13 @@ def index():
 
         report = models.ReportType.query.filter_by(id=form.report_type.data).first()
         report_type_name = report.name
-        return render_template('report.html', local_name=local_name,data=form,report_type_name=report_type_name)
+        return render_template('report.html', current_url='report', page_title=report_type_name, local_name=local_name,data=form,report_type_name=report_type_name)
 
-    return render_template('index.html', current_url='index', form=form)
+    return render_template('index.html', page_title='Welcome to SEIU Metrics Calculator', current_url='index', form=form)
 
 @app.route('/resources')
 def resources():
-    return render_template('resources.html', current_url='resources')
+    return render_template('resources.html', page_title='Help',current_url='resources')
 
 @app.route('/show_saved')
 def show_saved():

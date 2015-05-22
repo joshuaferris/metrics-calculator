@@ -246,7 +246,7 @@
               <label for="cell_phone_count">Number of members who have provided a cell phone number</label>
             </div>
             <div class="col-md-3">
-              {{ form.cell_phone_count(class='form-control') }}
+                {{ form.cell_phone_count(**{'class':'form-control input-lg', 'data-validation-type':'optional_integer','data-weight': '5'}) }}
             </div>            
             {% for error in form.cell_phone_count.errors %}
                 <div class="alert alert-danger" role="alert">{{ error }}</div>

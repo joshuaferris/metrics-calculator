@@ -73,7 +73,10 @@
             </div><!--/.nav-collapse -->
           </div>
         </nav>
+        {% block sidebar %}{% endblock %}
+        
 
+        {% if current_url == 'index' %}
         <!-- Survey bar -->
         <div id="surveyBar" class="alert alert-info alert-dismissable" role="alert">
                 Hi! Would you mind taking a <a href="https://docs.google.com/forms/d/1BaITMrBb-KYjU9C7w4P2PauueAXZ90W9v8w3q82UFY4/viewform" target="_blank" class="alert-link">quick survey</a> when you've finished?            
@@ -82,14 +85,14 @@
             </button>
         </div>
         <!-- end survey bar -->
-
+        {% endif %}
 
     <!-- main container -->
     <div id="page-content-wrapper">
         <div id="form-wrapper">
             <div class="container-fluid">
                 <div class="row-fluid">                         
-                    <h1>Welcome to the SEIU Metrics Calculator</h1>
+                    <h1>{{ page_title }}</h1>
                 </div>
 
                {% block content %}{% endblock %}

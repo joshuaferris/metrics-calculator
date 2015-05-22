@@ -1,51 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SEIU Metrics Calculator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SEIU Metrics Calculator">
-    <meta name="author" content="SEIU">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-
-    <style type="text/css">
-          body {
-            padding-top: 50px;
-            padding-bottom: 40px;
-          }
-          .sidebar-nav {
-            padding: 9px 0;
-          }
-          a.anchor{
-            display: block;
-            position: relative;
-            top: -60px;
-            visibility: hidden;
-          }          
-        </style>
-
-        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-  </head>
-  <body>
-      <div id="wrapper">
-          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-              <div class="container-fluid">
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span class="sr-only">Toggle navigation</span></button> <a class="navbar-brand" href="#">SEIU</a>
-                  </div>
-                  <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                      <li><a href="index.html">Calculator</a></li>
-                      <li class="active"><a href="resources.html">Help/Resources</a></li>
-                    </ul>
-                  </div><!--/.nav-collapse -->
-              </div>
-          </nav>
+{% extends "base.html" %}
+{% block sidebar %}
           <div id="sidebar-wrapper">
               <ul class="sidebar-nav">
                   <li>
@@ -59,15 +13,13 @@
                   </li>
               </ul>
           </div>
+{% endblock %}
+{% block content %}
           <div id="page-content-wrapper">
               <div class="container-fluid">
                   <div class="row-fluid">                
                       <div class="span11">
-
-                          
-                          <a class="anchor" id="help"></a>
-                          <h1>Help</h1> 
-
+                     
                           <a class="anchor" id="FAQ"></a>
                           <h2>SEIU Metrics Calculator FAQ</h2>
 
@@ -300,48 +252,5 @@
           </div>  <!-- End content-page-wrapper -->
       </div>  <!-- End wrapper -->
 
-
-<!-- BEGIN FOOTER -->                
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="js/jquery.bootstrap.wizard.min.js"></script>
-    <script src="formValidation.js"></script>
-    <script src="js/metrics.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('input[data-validation-type="mandatory_integer"]').on("change", function (eventObject) {
-                validateIntegerInput(eventObject.target.value, eventObject)
-            });
-            $('input[data-validation-type="optional_integer"]').on("change", function (eventObject) {
-                validateOptionalIntegerInput(eventObject.target.value, eventObject)
-            });
-            $('#date').on("change", function (eventObject) {
-                validateDateInput(eventObject.target.value, eventObject)
-            });
-            $('#rootwizard').bootstrapWizard({
-                onTabShow: function (tab, navigation, index) {
-                    var $total = navigation.find('li').length;
-                    var $current = index + 1;
-                    var $percent = ($current / $total) * 100;
-                    $('#rootwizard').find('.bar').css({ width: $percent + '%' });
-                }
-            });
-
-/*            $("#inputForm").submit(function(){
-                var metricsCalc = seiuMetrics;
-                metricsCalc.getInputValues();
-                metricsCalc.calculateMetrics();
-                var metricsData = metricsCalc.getMetricsOutput();
-
-                var pieData = generateDuesChartDataSet(metricsData);
-                var chartOptions = { legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>" }
-                var ctx = $("#universe1_chart").get(0).getContext("2d");
-                window.myPie = new Chart(ctx).Pie(pieData, chartOptions);
-                $("#universe1_chart").after(window.myPie.generateLegend())                
-                return false;
-            });
-*/
-        });
-    </script>
-  </body>                        
+{% endblock %}
 <!-- END FOOTER -->
