@@ -1,25 +1,25 @@
 function generateUniverseChartDataSet(metricsObject) {
     dataSet = [
                 {
-                    data: metricsObject.raw.inputObligationCount,
+                    data: [metricsObject.inputObligationCount],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Number of members you are obligated to represent"
                 },
                 {
-                    data: metricsObject.raw.inputFullDuesCount,
+                    data: [metricsObject.inputFullDuesCount],
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Number of full dues paying members"
                 },
                 {
-                    data: metricsObject.raw.inputPartialDuesCount,
+                    data: [metricsObject.inputPartialDuesCount],
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Number of partial dues paying members"
                 },
                 {
-                    data: metricsObject.raw.inputMemberCardCount,
+                    data: [metricsObject.inputMemberCardCount],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Number of membership card signers"
@@ -29,18 +29,17 @@ function generateUniverseChartDataSet(metricsObject) {
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    // Calculate how many cards signed vs how many full dues received
-    var unpayingCardSigners = metricsObject.raw.inputMemberCardCount - inputFullDuesCount;
+    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
                 {
-                    value: metricsObject.raw.inputFullDuesCount,
+                    value: metricsObject.inputFullDuesCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Full Dues Paying Members"
                 },
                 {
-                    value: metricsObject.raw.inputPartialDuesCount,
+                    value: metricsObject.inputPartialDuesCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Partial Dues Paying Members"
@@ -62,17 +61,17 @@ function generateDuesChartDataSet(metricsObject) {
 }
 
 function generatePoliticalChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.inputPoliticalCardCount - metricsObject.inputPoliticalContributorCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
                 {
-                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputPoliticalContributorCount,
+                    value: metricsObject.inputObligationCount - metricsObject.inputPoliticalContributorCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members who are not contributing to political funds"
                 },
                 {
-                    value: metricsObject.raw.inputPoliticalContributorCount,
+                    value: metricsObject.inputPoliticalContributorCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members who contribute to political funds"
@@ -90,37 +89,37 @@ function generatePoliticalChartDataSet(metricsObject) {
 function generateContactChartDataSet(metricsObject) {
     dataSet = [
                 {
-                    data: [metricsObject.contact.contactByMailPercentaget],
+                    data: [metricsOutput.contact.contactByMailPercentaget],
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members with known mailing addresses"
                 },
                 {
-                    data: [metricsObject.contact.contactByHomeEmailPercentage],
+                    data: [metricsOutput.contact.contactByHomeEmailPercentage],
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with known home email addresses"
                 },
                 {
-                    data: [metricsObject.contact.contactByWorkEmailPercentage],
+                    data: [metricsOutput.contact.contactByWorkEmailPercentage],
                     color: "#FDB45C",
                     highlight: "#FFC870",
                     label: "Members with known work email addresses"
                 },
                 {
-                    data: [metricsObject.contact.contactBySMSPercentage],
+                    data: [metricsOutput.contact.contactBySMSPercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members who have provided SMS authorizations"
                 },
                 {
-                    data: [metricsObject.contact.contactByHomePhonePercentage],
+                    data: [metricsOutput.contact.contactByHomePhonePercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known home phone numbers"
                 },
                 {
-                    data: [metricsObject.contact.contactByCellPhonePercentage],
+                    data: [metricsOutput.contact.contactByCellPhonePercentage],
                     color: "#949FB1",
                     highlight: "#A8B3C5",
                     label: "Members with known cell phone numbers"
@@ -132,13 +131,13 @@ function generateContactChartDataSet(metricsObject) {
 function generateAddressDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.raw.inputObligationCount - metricsObject.inputMailingCount,
+                    value: metricsObject.inputObligationCount - metricsObject.inputMailingCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members without address information"
                 },
                 {
-                    value: metricsObject.raw.inputMailingCount,
+                    value: metricsObject.inputMailingCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with address information"
@@ -150,13 +149,13 @@ function generateAddressDataSet(metricsObject) {
 function generateHomePhoneDataSet(metricsObject) {
     dataSet = [
                 {
-                    value: metricsObject.raw.inputObligationCount - metricsObject.raw.inputHomePhoneCount,
+                    value: metricsObject.inputObligationCount - metricsObject.inputHomePhoneCount,
                     color: "#F7464A",
                     highlight: "#FF5A5E",
                     label: "Members without home phone information"
                 },
                 {
-                    value: metricsObject.raw.inputHomePhoneCount,
+                    value: metricsObject.inputHomePhoneCount,
                     color: "#46BFBD",
                     highlight: "#5AD3D1",
                     label: "Members with home phone information"
