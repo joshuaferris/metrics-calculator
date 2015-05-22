@@ -63,6 +63,10 @@ def index():
 
     return render_template('index.html', form=form)
 
+@app.route('/resources')
+def resources():
+    return render_template('resouces.html')
+
 @app.route('/show_saved')
 def show_saved():
     users = models.User.query.all()
