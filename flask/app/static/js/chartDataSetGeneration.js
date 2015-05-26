@@ -56,7 +56,7 @@ function generateUniverseChartDataSet(metricsObject) {
 }
 
 function generateDuesChartDataSet(metricsObject) {
-    var unpayingCardSigners = metricsObject.raw.inputPoliticalCardCount - metricsObject.raw.inputPoliticalContributorCount
+    var unpayingCardSigners = metricsObject.raw.inputMemberCardCount - metricsObject.raw.inputFullDuesCount
     unpayingCardSigners = Math.max(unpayingCardSigners, 0)
     dataSet = [
         {
@@ -81,7 +81,7 @@ function generateDuesChartDataSet(metricsObject) {
             value: unpayingCardSigners,
             color: getNextSegmentColor(),
             highlight: highLightFillColor,
-            label: "Number of membership card signers you are not receiving dues from"
+            label: "Number of membership card signers from whom you are not receiving dues"
         }
     ];
     dataSet.sort(function(a,b){
